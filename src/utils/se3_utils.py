@@ -199,7 +199,6 @@ def log_se3(T):
     
     # V^{-1} = I - K/2 + (1/theta² - (1+cos)/(2*theta*sin)) * K²
     # Taylor for small theta: V^{-1} ≈ I - K/2 + K²/12
-    half_theta = theta / 2
     a = torch.where(
         theta < 1e-6,
         -0.5 + theta_sq / 12.0,  # -1/2 + θ²/12

@@ -137,48 +137,55 @@ class SyntheticSE3Dataset(Dataset):
 
         Encodes rotation (background hue + orientation bar) and
         translation (circle position) into the image.
+
+        Fully vectorized — no Python per-sample loop for background,
+        bars, or noise. Circle masks still loop per-sample (cheap).
         """
-        images = np.zeros(
-            (self.n_samples, 3, self.image_size, self.image_size),
-            dtype=np.float32,
-        )
+        S = self.image_size
+        N = self.n_samples
+        images = np.full((N, 3, S, S), 0.5, dtype=np.float32)
 
-        for i in range(self.n_samples):
-            img = np.zeros((3, self.image_size, self.image_size), dtype=np.float32)
+        # Extract all rotations and translations at once
+        actions_np = self.target_actions.numpy()  # [N, 4, 4]
+        R_all = actions_np[:, :3, :3]   # [N, 3, 3]
+        t_all = actions_np[:, :3, 3]    # [N, 3]
 
-            R = self.target_actions[i, :3, :3].numpy()
+        # --- Translation → circle position ---
+        cx = np.clip((t_all[:, 0] + 0.5) * S, 5, S - 5).astype(np.int32)
+        cy = np.clip((t_all[:, 1] + 0.5) * S, 5, S - 5).astype(np.int32)
+        radii = np.maximum(3, (10 + t_all[:, 2] * 20).astype(np.int32))
 
-            # Fixed neutral background (no rotation-trace leakage)
-            img[0] = 0.5
-            img[1] = 0.5
-            img[2] = 0.5
+        yy, xx = np.mgrid[:S, :S]  # [S, S] each
 
-            # Translation → circle position
-            t = self.target_actions[i, :3, 3].numpy()
-            cx = int(np.clip((t[0] + 0.5) * self.image_size, 5, self.image_size - 5))
-            cy = int(np.clip((t[1] + 0.5) * self.image_size, 5, self.image_size - 5))
-            r = max(3, int(10 + t[2] * 20))
+        for i in range(N):
+            dist_sq = (xx - cx[i]) ** 2 + (yy - cy[i]) ** 2
+            mask = dist_sq < radii[i] ** 2
+            images[i, 0][mask] = 0.8
+            images[i, 1][mask] = 0.3
+            images[i, 2][mask] = 0.1
 
-            Y, X = np.ogrid[:self.image_size, :self.image_size]
-            mask = (X - cx) ** 2 + (Y - cy) ** 2 < r ** 2
-            img[0][mask] = 0.8
-            img[1][mask] = 0.3
-            img[2][mask] = 0.1
+        # --- Rotation-encoding bar (vectorized) ---
+        angles = np.arctan2(R_all[:, 1, 0], R_all[:, 0, 0])  # [N]
+        bar_len = 20
+        steps = np.arange(bar_len, dtype=np.float32)  # [bar_len]
+        center = S / 2.0
 
-            # Rotation-encoding bar
-            angle = np.arctan2(R[1, 0], R[0, 0])
-            bar_len = 20
-            for step in range(bar_len):
-                px = int(self.image_size / 2 + step * np.cos(angle))
-                py = int(self.image_size / 2 + step * np.sin(angle))
-                if 0 <= px < self.image_size and 0 <= py < self.image_size:
-                    img[0, py, px] = 0.9
-                    img[1, py, px] = 0.9
-                    img[2, py, px] = 0.9
+        # All bar pixel coords: [N, bar_len]
+        px_all = (center + steps[None, :] * np.cos(angles[:, None])).astype(np.int32)
+        py_all = (center + steps[None, :] * np.sin(angles[:, None])).astype(np.int32)
 
-            img += rng.randn(*img.shape).astype(np.float32) * 0.02
-            img = np.clip(img, 0, 1)
-            images[i] = img
+        # Flatten and filter valid coords
+        sample_idx = np.repeat(np.arange(N), bar_len)
+        px_flat = px_all.ravel()
+        py_flat = py_all.ravel()
+        valid = (px_flat >= 0) & (px_flat < S) & (py_flat >= 0) & (py_flat < S)
+        images[sample_idx[valid], 0, py_flat[valid], px_flat[valid]] = 0.9
+        images[sample_idx[valid], 1, py_flat[valid], px_flat[valid]] = 0.9
+        images[sample_idx[valid], 2, py_flat[valid], px_flat[valid]] = 0.9
+
+        # --- Add noise and clip (vectorized) ---
+        images += rng.randn(*images.shape).astype(np.float32) * 0.02
+        np.clip(images, 0, 1, out=images)
 
         return torch.from_numpy(images)
 
