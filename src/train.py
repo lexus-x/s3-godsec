@@ -157,6 +157,7 @@ def main():
     parser.add_argument('--resume', type=str, default=None)
     parser.add_argument('--epochs', type=int, default=None)
     parser.add_argument('--seed', type=int, default=0)
+    parser.add_argument('--run-tag', type=str, default=None, help="Prefix for checkpoint filenames")
     args = parser.parse_args()
 
     config = load_config(args.config)
@@ -172,7 +173,10 @@ def main():
     hidden_dim = config['model'].get('hidden_dim', 768)
 
     # Run tag for file naming
-    run_tag = f"{model_name}_{backbone_kind}_seed{args.seed}"
+    if args.run_tag:
+        run_tag = f"{args.run_tag}_seed{args.seed}"
+    else:
+        run_tag = f"{model_name}_{backbone_kind}_seed{args.seed}"
 
     print("=" * 70)
     print(f"  SE(3)-VLA Training — Controlled Experiment")
