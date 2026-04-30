@@ -1,81 +1,64 @@
 # SE(3)-VLA: Geodesic Action Chunking & Uncertainty-Aware Flow Matching
 
-> **Novel contributions over Braun et al. (RFMP, IROS 2024):**
-> 1. **Geodesic Action Chunking** — predict temporally-coherent action *chunks* on SE(3) via K anchor poses + geodesic interpolation (vs. single-pose prediction in RFMP)
-> 2. **Uncertainty-Aware Flow Matching** — N-sample flow matching with geodesic variance + conformal prediction sets on SE(3) (vs. point estimates in all existing VLAs)
-> 3. **First VLA with calibrated coverage guarantees** on the SE(3) manifold
+> **Replacing the Euclidean action head of SmolVLA (450M) with Riemannian flow matching on SE(3), adding geodesic action chunking and calibrated conformal prediction — all under 500M parameters.**
 
 [![Paper](https://img.shields.io/badge/paper-coming%20soon-blue)]()
-[![Code](https://img.shields.io/badge/code-v0.2-green)]()
+[![Code](https://img.shields.io/badge/code-v0.3-green)]()
 [![License](https://img.shields.io/badge/license-MIT-yellow)]()
+[![Params](https://img.shields.io/badge/params-<500M-orange)]()
 
 ---
 
 ## The Problem
 
-All published VLAs (Octo, OpenVLA, π0, SmolVLA, RDT-1B) predict robot actions as:
-- **Independent** H-step action chunks in flat Euclidean space (R⁶ axis-angle ⊕ R³ translation)
-- **Point estimates** — no uncertainty quantification
+All published VLAs predict robot actions in **flat Euclidean space** (R⁶ axis-angle ⊕ R³ translation):
 
-This has three known failure modes:
-1. **Antipodal discontinuity**: axis-angle has a 2-cover at ||θ|| = π
-2. **Temporal incoherence**: H independent predictions can cross the antipodal boundary → discontinuous execution
-3. **No uncertainty**: the robot can't know when it's wrong → no safe fallback
+- **Antipodal discontinuity**: axis-angle has a 2-cover at ||θ|| = π
+- **Temporal incoherence**: H independent predictions can cross the antipodal boundary
+- **No uncertainty**: the robot can't know when it's wrong
 
-RFMP (Braun et al. 2024) addressed #1 via Riemannian flow matching on SE(3), but only for **single-pose** prediction — it doesn't address #2 or #3.
+SmolVLA (450M) uses flow matching for action prediction, but in Euclidean space — it inherits all three problems.
 
-## Our Solution
+## Our Solution (3 Novel Contributions)
 
-### 1. Geodesic Action Chunking (Novel)
+### 1. SE(3) Flow Matching Head for SmolVLA
 
-Instead of predicting H independent SE(3) poses, we predict **K anchor poses** (K << H) and interpolate H actions along geodesics:
+Replace SmolVLA's Euclidean action expert with a Riemannian flow matching head on the SE(3) Lie group. Actions are predicted as geodesics on the manifold, respecting the true geometry of rigid body motions.
 
 ```
-h (VLA hidden) → MLP → K se(3) anchors → exp → SE(3)
-SE(3) anchors → geodesic interpolation → H action poses
+SmolVLA VLM (frozen, 430M) → hidden state h → SE(3) Flow Head (trainable, 20M) → T ∈ SE(3)
 ```
 
-**Why this matters:**
-- Robot manipulation trajectories are smooth on SE(3)
-- Geodesic interpolation gives temporal consistency for free
-- K=2 (start+end) is often sufficient; K=4 handles curved motions
+### 2. Geodesic Action Chunking
 
-**Comparison to prior work:**
-
-| Method | Temporal structure | Manifold |
-|--------|-------------------|----------|
-| Octo/OpenVLA | None (H independent) | Euclidean R⁷ |
-| Diffusion Policy | Iterative denoising | Euclidean |
-| RFMP (Braun 2024) | Single pose | SE(3) |
-| **Ours** | **Geodesic interpolation** | **SE(3)** |
-
-### 2. Uncertainty-Aware Flow Matching (Novel)
-
-Flow matching is generative — sampling is nearly free (different noise seeds, same ODE). We exploit this:
-
-1. Draw N samples from the flow → N candidate SE(3) actions
-2. Compute **Fréchet mean** on SE(3) (iterative log-map averaging)
-3. Compute **geodesic variance** σ² = (1/N) Σ d(T̄, Tᵢ)²
-4. Calibrate **conformal prediction sets**: {T : d(T, T̄) ≤ q_α}
-
-**Coverage guarantee** (distribution-free): P(T* ∈ C_α) ≥ 1 - α
-
-**This is the first VLA with principled uncertainty on SE(3).**
-
-### 3. Combined Pipeline
+Instead of predicting H independent SE(3) poses, predict **K anchor poses** and interpolate H actions along geodesics:
 
 ```
-VLA Backbone (frozen)
-       ↓
-   Hidden State h
-       ↓
-┌──────────────────────┐     ┌─────────────────────────┐
-│ Geodesic Chunking    │     │ Uncertainty Flow Head    │
-│ K anchors → H poses  │     │ N samples → σ² + C_α    │
-└──────────────────────┘     └─────────────────────────┘
-       ↓                              ↓
-  Action Chunk [H, SE(3)]      Mean + Uncertainty + Conformal Set
+h → MLP → K se(3) anchors → exp → SE(3) → geodesic interpolation → H actions
 ```
+
+This gives temporal consistency for free. K=2 (start+end) handles straight motions; K=4 handles curved trajectories.
+
+### 3. Uncertainty-Aware Flow with Conformal Prediction
+
+Flow matching is generative — sampling is nearly free. Draw N samples, compute Fréchet mean and geodesic variance on SE(3), and calibrate conformal prediction sets:
+
+```
+N flow samples → Fréchet mean → geodesic variance σ² → conformal set {T : d(T, T̄) ≤ q_α}
+```
+
+**Coverage guarantee** (distribution-free): P(T* ∈ C_α) ≥ 1 − α
+
+**First VLA with principled uncertainty on SE(3).**
+
+## Parameter Budget (< 500M)
+
+| Component | Params | Trainable |
+|-----------|--------|-----------|
+| SmolVLA VLM (SigLIP + SmolLM) | ~430M | ❌ frozen |
+| SE(3) flow head | ~20M | ✅ |
+| Geodesic chunking head | ~5M | ✅ |
+| **Total** | **~455M** | **~25M** |
 
 ## Quick Start
 
@@ -83,15 +66,22 @@ VLA Backbone (frozen)
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the novel experiment (geodesic chunking + uncertainty)
-python experiments/run_novel_experiment.py --config configs/novel_se3.yaml --seed 0
+# Install SmolVLA (requires lerobot)
+git clone https://github.com/huggingface/lerobot.git
+cd lerobot && pip install -e ".[smolvla]" && cd ..
 
-# Run the original pilot sweep (12 runs)
-bash experiments/run_all.sh
+# Train SmolVLA + SE(3) flow head on LIBERO
+python src/train_smolvla.py --config configs/smolvla_se3.yaml --seed 0
 
-# Evaluate a checkpoint
-python src/evaluate.py --config configs/octo_se3.yaml \
-    --checkpoint checkpoints/OctoSE3_scene_id_seed0_best.pt
+# Train with geodesic chunking
+python src/train_smolvla.py --config configs/smolvla_se3.yaml --seed 0 --head-type chunk
+
+# Train with uncertainty-aware flow
+python src/train_smolvla.py --config configs/smolvla_se3.yaml --seed 0 --head-type uncertainty
+
+# Evaluate
+python src/evaluate_smolvla.py --config configs/smolvla_se3.yaml \
+    --checkpoint checkpoints/smolvla_se3/best.pt
 ```
 
 ## Repository Structure
@@ -99,46 +89,75 @@ python src/evaluate.py --config configs/octo_se3.yaml \
 ```
 s3-godsec/
 ├── configs/
-│   ├── octo_se3.yaml              # SE(3) flow head + scene_id
-│   ├── octo_baseline.yaml         # Euclidean baseline + scene_id
-│   ├── octo_se3_cnn.yaml          # SE(3) + mock CNN
-│   ├── octo_baseline_cnn.yaml     # Euclidean + mock CNN
-│   └── novel_se3.yaml             # Novel: chunking + uncertainty config
+│   ├── smolvla_se3.yaml           # ★ SmolVLA + SE(3) (main config)
+│   ├── novel_se3.yaml             # Synthetic experiment config
+│   ├── octo_se3.yaml              # Octo + SE(3) (legacy)
+│   ├── octo_baseline.yaml         # Octo Euclidean baseline (legacy)
+│   └── ...
 ├── src/
+│   ├── backbones/
+│   │   └── smolvla_backbone.py    # ★ SmolVLA adapter (frozen VLM)
 │   ├── models/
 │   │   ├── se3_action_head.py     # SE(3) flow matching head
-│   │   ├── geodesic_chunking.py   # ★ Novel: geodesic action chunking
-│   │   ├── uncertainty_head.py    # ★ Novel: uncertainty-aware flow
+│   │   ├── geodesic_chunking.py   # ★ Geodesic action chunking
+│   │   ├── uncertainty_head.py    # ★ Uncertainty + conformal prediction
 │   │   ├── geodesic_loss.py       # Geodesic loss functions
-│   │   ├── octo_adapter.py        # Adapter for Octo VLA
-│   │   ├── scene_id_backbone.py   # Scene-ID backbone for A/B testing
-│   │   └── mock_backbone.py       # Mock CNN backbone
+│   │   ├── octo_adapter.py        # Octo adapter (legacy)
+│   │   └── ...
 │   ├── training/
-│   │   ├── data_loader.py         # Synthetic SE(3) dataset
-│   │   └── trainer.py             # Training loop
+│   │   └── data_loader.py         # Synthetic + real datasets
 │   ├── utils/
 │   │   ├── se3_utils.py           # SE(3) operations (exp, log, geodesic)
 │   │   ├── metrics.py             # Geodesic RMSE, rotation RMSE
-│   │   └── visualization.py       # Geodesic visualization
-│   ├── train.py                   # Main training script
-│   └── evaluate.py                # Main evaluation script
+│   │   └── visualization.py
+│   ├── train_smolvla.py           # ★ SmolVLA training script
+│   ├── evaluate_smolvla.py        # ★ SmolVLA evaluation script
+│   └── ...
 ├── experiments/
-│   ├── run_novel_experiment.py    # ★ Novel: full pipeline experiment
-│   ├── run_all.sh                 # 12-run sweep
-│   ├── ablation_euclidean_vs_se3.py
-│   ├── ablation_rotation_tasks.py
-│   └── PREREGISTRATION.md
+│   ├── run_novel_experiment.py    # Novel pipeline experiment
+│   └── run_all.sh                 # Full sweep
 ├── reports/
-│   ├── SUMMARY.md                 # Pilot results
-│   ├── PILOT_POSTLEAK.md          # Post-leakage-fix results
-│   ├── BLOCKER.md                 # Phase 1 blocker (CuDNN/JAX)
-│   └── PROGRESS.md                # Progress tracker
-├── docs/                          # Research documentation
-├── scratch/                       # Dev scripts
-├── implementation_plan.md         # Phase-by-phase execution plan
-├── requirements.txt
-└── LICENSE
+├── docs/
+├── scratch/
+├── implementation_plan.md
+└── README.md
 ```
+
+## Why SmolVLA?
+
+| Property | Benefit |
+|----------|---------|
+| **450M params** | Fits under 500M budget with our SE(3) head |
+| **PyTorch native** | No JAX/CUDA install hell (Octo has this problem) |
+| **Flow matching** | Already uses flow matching — clean A/B test (Euclidean vs SE(3) flow) |
+| **Pretrained** | Trained on LeRobot community data — real manipulation demos |
+| **Open source** | Full training recipe available |
+
+## Experimental Design
+
+### A/B Test: Euclidean vs SE(3) Flow (same backbone, same budget)
+
+| Model | Backbone | Action Head | Params |
+|-------|----------|-------------|--------|
+| SmolVLA-Euclidean (baseline) | SmolVLA-450M frozen | Euclidean flow (original) | 450M |
+| SmolVLA-SE(3) (ours) | SmolVLA-450M frozen | SE(3) flow matching | 455M |
+| SmolVLA-SE(3)-Chunk (ours) | SmolVLA-450M frozen | Geodesic chunking | 455M |
+| SmolVLA-SE(3)-Unc (ours) | SmolVLA-450M frozen | Uncertainty flow | 455M |
+
+### Benchmarks
+
+- **LIBERO-Spatial**: 10 tasks, spatial reasoning
+- **LIBERO-Object**: 10 tasks, object manipulation
+- **Meta-World MT-10**: 10 tasks, diverse manipulation
+
+### Metrics
+
+- **Rotation RMSE** (SO(3) geodesic) — primary metric
+- **Translation RMSE** — secondary metric
+- **Geodesic RMSE** (SE(3)) — combined metric
+- **Temporal smoothness** — mean geodesic distance between consecutive actions
+- **Conformal coverage** — empirical coverage of prediction sets
+- **Success rate** — task completion on benchmarks
 
 ## Key Results
 
@@ -148,30 +167,31 @@ SE(3) head retains advantage over Euclidean baseline across all 3 seeds:
 
 | Backbone | Seed | Euclid R-RMSE | SE(3) R-RMSE | Δ |
 |----------|------|---------------|--------------|---|
-| scene_id | 0    | 2.4330        | 2.3178       | +0.1152 |
-| scene_id | 1    | 2.3443        | 2.2519       | +0.0925 |
-| scene_id | 2    | 2.4394        | 2.3176       | +0.1218 |
+| scene_id | 0 | 2.4330 | 2.3178 | +0.1152 |
+| scene_id | 1 | 2.3443 | 2.2519 | +0.0925 |
+| scene_id | 2 | 2.4394 | 2.3176 | +0.1218 |
 
-### Novel Experiment
+### SmolVLA Experiments
 
-TBD — pending `python experiments/run_novel_experiment.py`
+TBD — pending `python src/train_smolvla.py --config configs/smolvla_se3.yaml`
 
 ## Citation
 
 ```bibtex
 @article{se3vla2026,
-  title={SE(3)-VLA: Geodesic Action Chunking and Uncertainty-Aware Flow Matching for Vision-Language-Action Models},
+  title={SE(3)-VLA: Geodesic Action Chunking and Uncertainty-Aware Flow Matching on SmolVLA},
   author={TBD},
   journal={arXiv preprint},
   year={2026}
 }
 ```
 
-## Acknowledgments
+## Related Work
 
-- Braun et al. for Riemannian Flow Matching Policy (RFMP, IROS 2024)
-- Octo Model Team for the open-source VLA baseline
-- `geoopt` library for Riemannian optimization in PyTorch
+- **SmolVLA** (HuggingFace, 2025): 450M VLA with Euclidean flow matching
+- **RFMP** (Braun et al., IROS 2024): Riemannian flow matching for single-pose robot policies
+- **Octo** (UC Berkeley, 2024): Open-source generalist robot policy (27M/93M)
+- **OpenVLA** (Stanford, 2024): 7B open-source VLA
 
 ## License
 

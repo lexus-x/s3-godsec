@@ -1,0 +1,46 @@
+# SmolVLA (450M pretrained) + SE(3) Flow Head
+# Total budget: <500M parameters
+# Backbone: frozen SmolVLA-450M from HuggingFace
+# Trainable: SE(3) flow matching head (~20M)
+
+model:
+  name: "SmolVLA_SE3"
+  backbone: "smolvla"
+  backbone_path: "lerobot/smolvla_base"
+  hidden_dim: 768  # SmolVLA's VLM hidden size
+  freeze_backbone: true
+
+  # SE(3) flow head
+  head_type: "flow"  # flow | chunk | uncertainty
+  head_hidden_dim: 256
+  n_layers: 4
+  time_embed_dim: 64
+  source_scale: 0.1
+
+  # Geodesic chunking (if head_type: chunk)
+  chunk_size: 8
+  n_anchors: 2
+
+  # Uncertainty (if head_type: uncertainty)
+  n_uncertainty_samples: 10
+  conformal_alpha: 0.1
+
+training:
+  n_flow_steps_train: 10
+  n_flow_steps_eval: 10
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-5
+  batch_size: 32
+  n_epochs: 50
+  gradient_clip_norm: 1.0
+
+data:
+  # LIBERO-Spatial benchmark
+  benchmark: "libero_spatial"
+  n_train_per_task: 100
+  n_val_per_task: 20
+  image_size: [256, 256]
+
+logging:
+  save_interval: 10
+  checkpoint_dir: "checkpoints/smolvla_se3/"
