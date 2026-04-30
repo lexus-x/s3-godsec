@@ -178,18 +178,6 @@ class SyntheticSE3Dataset(Dataset):
                     img[1, py, px] = 0.9
                     img[2, py, px] = 0.9
 
-            # Family-specific visual marker so backbone can distinguish
-            if self.task_type == 'rotation_heavy':
-                # Red border on top-left corner
-                img[0, :5, :5] = 1.0
-                img[1, :5, :5] = 0.0
-                img[2, :5, :5] = 0.0
-            else:
-                # Blue border on top-left corner
-                img[0, :5, :5] = 0.0
-                img[1, :5, :5] = 0.0
-                img[2, :5, :5] = 1.0
-
             img += rng.randn(*img.shape).astype(np.float32) * 0.02
             img = np.clip(img, 0, 1)
             images[i] = img
