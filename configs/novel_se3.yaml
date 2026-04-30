@@ -1,0 +1,41 @@
+# Novel SE(3) Experiment: Geodesic Chunking + Uncertainty-Aware Flow
+# This config tests the two novel contributions:
+#   1. Geodesic action chunking (K anchors → H interpolated actions)
+#   2. Uncertainty-aware flow matching (N samples → conformal prediction)
+
+model:
+  name: "OctoSE3"
+  hidden_dim: 768
+  head_hidden_dim: 256
+  n_layers: 4
+  time_embed_dim: 64
+  source_scale: 0.1
+  freeze_backbone: false
+  backbone_kind: "scene_id"
+  n_tasks: 2
+
+training:
+  n_flow_steps_train: 10
+  n_flow_steps_eval: 10
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-5
+  batch_size: 32
+  n_epochs: 50
+  gradient_clip_norm: 1.0
+
+data:
+  n_train_per_family: 2500
+  n_val_per_family: 250
+  image_size: [224, 224]
+
+# Novel: geodesic chunking parameters
+chunk_size: 8
+n_anchors: 2  # K=2: start+end geodesic, K=4: piecewise
+
+# Novel: uncertainty parameters
+n_uncertainty_samples: 10  # N samples for variance estimation
+conformal_alpha: 0.1       # miscoverage level (target 90% coverage)
+
+logging:
+  save_interval: 25
+  checkpoint_dir: "checkpoints/"
