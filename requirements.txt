@@ -1,6 +1,41 @@
+# SE(3)-VLA: Core Dependencies
+# =============================
+
+# Deep Learning
 torch>=2.0.0
+torchvision>=0.15.0
+
+# Scientific Computing
 numpy>=1.24.0
+scipy>=1.10.0
+
+# Riemannian Geometry
 geoopt>=0.5.0
+
+# Configuration
 pyyaml>=6.0
+
+# Progress & Logging
 tqdm>=4.65.0
+tensorboard>=2.13.0
+
+# Visualization
 matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# VLA Backbone (SmolVLA)
+# Install separately:
+#   git clone https://github.com/huggingface/lerobot.git
+#   cd lerobot && pip install -e ".[smolvla]"
+# lerobot  # uncomment when ready
+
+# Optional: LIBERO benchmark
+# pip install libero  # uncomment when ready
+
+# Optional: MetaWorld benchmark
+# pip install git+https://github.com/Farama-Foundation/Metaworld.git  # uncomment when ready
+
+# Development
+pytest>=7.0.0
+black>=23.0.0
+isort>=5.12.0

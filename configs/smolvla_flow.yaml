@@ -1,0 +1,36 @@
+# SmolVLA + SE(3) Flow Head
+# Standard single-action flow matching on SE(3)
+# Best for: single-step action prediction
+
+model:
+  name: "SmolVLA_SE3"
+  backbone: "smolvla"
+  backbone_path: "lerobot/smolvla_base"
+  hidden_dim: 768
+  freeze_backbone: true
+
+  # SE(3) flow head (single action)
+  head_type: "flow"
+  head_hidden_dim: 256
+  n_layers: 4
+  time_embed_dim: 64
+  source_scale: 0.1
+
+training:
+  n_flow_steps_train: 10
+  n_flow_steps_eval: 10
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-5
+  batch_size: 32
+  n_epochs: 50
+  gradient_clip_norm: 1.0
+
+data:
+  benchmark: "synthetic"  # Change to "libero_spatial" for real benchmark
+  n_train_per_family: 2500
+  n_val_per_family: 250
+  image_size: [224, 224]
+
+logging:
+  save_interval: 10
+  checkpoint_dir: "checkpoints/smolvla_se3/"
