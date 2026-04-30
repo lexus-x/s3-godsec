@@ -19,11 +19,8 @@
 
 ## Abstract (Draft)
 
-> Vision-Language-Action (VLA) models predict robot actions in flat Euclidean space (R⁶ axis-angle ⊕ R³ translation), ignoring the true geometry of rigid body motions on the Special Euclidean group SE(3). We show that this Euclidean approximation introduces a systematic error of O(θ²) on rotation-heavy tasks, where θ is the rotation magnitude — explaining the observed 17% performance gap between translation-heavy and rotation-heavy manipulation tasks in MetaWorld MT-50.
->
-> We introduce SE(3)-VLA, which replaces the Euclidean action head with a Riemannian flow matching head on SE(3). The key insight is that actions in robotic manipulation are points on a Lie group, not in a vector space, and the flow matching framework naturally extends to this setting via geodesic interpolation and tangent space prediction.
->
-> On MetaWorld MT-50, SE(3)-VLA improves success rate on rotation-heavy tasks by 10-15% over the Euclidean baseline while maintaining performance on translation-heavy tasks. We introduce Geodesic Action-ECE, the first calibration metric for manifold-valued VLA predictions, and show that SE(3)-VLA produces better-calibrated uncertainty estimates. Our method requires modifying only the action head (~20M parameters) while keeping the VLA backbone frozen, making it applicable to any pretrained VLA architecture.
+> TBD — pending Phase 4 results. Abstract will be written after `reports/MAIN_RESULTS.md` is complete.
+> No number may appear here that is not in a table in `reports/MAIN_RESULTS.md` or `reports/ABLATIONS.md`.
 
 ## Paper Structure (8 pages + references for RA-L)
 
@@ -37,7 +34,7 @@
 **Paragraph 2 — Problem**:
 - Rotations live on SO(3), a non-Euclidean manifold
 - Euclidean approximation fails at large rotations (Theorem 1)
-- Empirical evidence: 17% gap between rotation-heavy and translation-heavy tasks
+- Empirical evidence: TBD — pending Phase 4 results
 
 **Paragraph 3 — Gap**:
 - No published VLA respects the SE(3) geometry of actions
@@ -52,7 +49,7 @@
 1. First VLA with Riemannian flow matching on SE(3) for action generation
 2. Theorem 1: bounded error of Euclidean approximation (predicts empirical gains)
 3. Geodesic Action-ECE: first calibration metric for manifold-valued predictions
-4. +10-15% on rotation-heavy MetaWorld tasks with only action head modification
+4. TBD — empirical improvement number pending Phase 4 results
 
 ### Section 2: Related Work (~1 page)
 
@@ -108,18 +105,18 @@
 
 **5.2 Main Results (Experiment 1)**
 - Table: Success rate on MT-50 (rotation-heavy, translation-heavy, overall)
-- SE(3) > Euclidean on rotation-heavy, ≈ on translation-heavy
+- TBD — pending Phase 4 results
 
 **5.3 Rotation Magnitude Analysis (Experiment 2)**
 - **KEY FIGURE**: Scatter plot of rotation magnitude vs. Δ(success rate)
-- Shows positive correlation validating Theorem 1
+- TBD — pending Phase 4 results; may or may not validate Theorem 1
 
 **5.4 Ablation Studies (Experiments 3-4)**
 - Architecture ablation (flow steps, hidden dim, layers)
 - Parameterization ablation (axis-angle vs. quaternion vs. 6D vs. SE(3))
 
 **5.5 LIBERO Results (Experiment 5)**
-- Table: SE(3) ≈ Euclidean on LIBERO (sanity check)
+- Table: TBD — pending Phase 4 results
 
 **5.6 Inference Speed (Experiment 6)**
 - Table: Speed comparison across flow steps

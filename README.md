@@ -1,5 +1,6 @@
 # SE(3)-VLA: Geodesic Action Head for Vision-Language-Action Models
 
+> *This is a synthetic diagnostic. Main results are in `reports/MAIN_RESULTS.md` (real benchmark).*
 > **Replacing Euclidean action prediction with Riemannian flow matching on SE(3) for rotationally-correct robot manipulation.**
 
 [![Paper](https://img.shields.io/badge/paper-coming%20soon-blue)]()
@@ -20,14 +21,9 @@ All published VLAs (Octo, OpenVLA, π0, SmolVLA, RDT-1B) predict robot actions i
 
 **SE(3)-VLA** replaces the Euclidean action head with a **Riemannian flow matching head on SE(3)** — the Lie group of rigid body motions. Actions are predicted as geodesics on the manifold, respecting the true geometry of robot motions.
 
-## Key Results (Expected)
+## Key Results
 
-| Benchmark | Octo (baseline) | Octo-SE(3) | Δ |
-|-----------|-----------------|------------|---|
-| LIBERO (saturated) | ~90% | ~90% | ~0% |
-| MetaWorld MT-50 (overall) | ~55% | ~60% | **+5%** |
-| MetaWorld rotation-heavy (15 tasks) | ~45% | ~58% | **+13%** |
-| MetaWorld translation-heavy | ~62% | ~63% | +1% |
+TBD — pending Phase 4 results
 
 ## Quick Start
 

@@ -147,13 +147,11 @@ class SyntheticSE3Dataset(Dataset):
             img = np.zeros((3, self.image_size, self.image_size), dtype=np.float32)
 
             R = self.target_actions[i, :3, :3].numpy()
-            trace = np.clip(R[0, 0] + R[1, 1] + R[2, 2], -1, 3)
-            hue = (trace + 1) / 4.0
 
-            # Background gradient encodes rotation trace
-            img[0] = hue * 0.3 + 0.1
-            img[1] = (1 - hue) * 0.3 + 0.1
-            img[2] = 0.2
+            # Fixed neutral background (no rotation-trace leakage)
+            img[0] = 0.5
+            img[1] = 0.5
+            img[2] = 0.5
 
             # Translation → circle position
             t = self.target_actions[i, :3, 3].numpy()

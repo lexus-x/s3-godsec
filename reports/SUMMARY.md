@@ -1,3 +1,5 @@
+> *This is a synthetic diagnostic. Main results are in `reports/MAIN_RESULTS.md` (real benchmark).*
+
 ## Verdict: Partial support for SE(3) head — advantage holds under scene_id backbone (all 3 seeds), does not survive mock_cnn backbone (seed 1 inverts).
 
 ### Per-Seed Table for Primary Claim (rotation_heavy)
