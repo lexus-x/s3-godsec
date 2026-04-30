@@ -1,11 +1,11 @@
 # Graph Report - /home/user/Desktop/vla_projects/q1/s3-godsec  (2026-04-30)
 
 ## Corpus Check
-- 21 files · ~18,510 words
+- 22 files · ~40,829 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 221 nodes · 344 edges · 19 communities detected
+- 222 nodes · 344 edges · 20 communities detected
 - Extraction: 72% EXTRACTED · 28% INFERRED · 0% AMBIGUOUS · INFERRED: 97 edges (avg confidence: 0.65)
 - Token cost: 0 input · 0 output
 
@@ -29,6 +29,7 @@
 - [[_COMMUNITY_Community 16|Community 16]]
 - [[_COMMUNITY_Community 17|Community 17]]
 - [[_COMMUNITY_Community 18|Community 18]]
+- [[_COMMUNITY_Community 19|Community 19]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `SE3ActionPredictor` - 21 edges
@@ -43,8 +44,8 @@
 10. `validate_single()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Count total and trainable parameters.` --uses--> `SE3ActionPredictor`  [INFERRED]
-  /home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py → /home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py
+- `SE3ActionPredictor` --uses--> `Count total and trainable parameters.`  [INFERRED]
+  /home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py → /home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py
 - `train_one_epoch()` --calls--> `log_so3()`  [INFERRED]
   /home/user/Desktop/vla_projects/q1/s3-godsec/src/train.py → /home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py
 - `validate_single()` --calls--> `exp_so3()`  [INFERRED]
@@ -132,6 +133,10 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 19 - "Community 19"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
 - **75 isolated node(s):** `Ablation: Rotation magnitude analysis.  This generates the KEY FIGURE for the pa`, `Compute average rotation magnitude from demonstration data.          Args:`, `Generate data for the key scatter plot.          X-axis: average rotation magnit`, `Ablation: Euclidean vs SE(3) action head on rotation-heavy tasks.  This is the K`, `Run experiment for a given model type and task set.          Args:         model` (+70 more)
   These have ≤1 connection - possible missing edges or undocumented components.
@@ -141,7 +146,7 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 14`** (1 nodes): `make_phase_a_configs.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 15`** (1 nodes): `__init__.py`
+- **Thin community `Community 15`** (1 nodes): `test_octo.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 16`** (1 nodes): `__init__.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -149,14 +154,16 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 18`** (1 nodes): `__init__.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 19`** (1 nodes): `__init__.py`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `SE3ActionPredictor` connect `Community 1` to `Community 0`, `Community 9`, `Community 2`, `Community 7`?**
-  _High betweenness centrality (0.159) - this node is a cross-community bridge._
+  _High betweenness centrality (0.157) - this node is a cross-community bridge._
 - **Why does `evaluate_loader()` connect `Community 5` to `Community 0`, `Community 1`, `Community 2`?**
-  _High betweenness centrality (0.095) - this node is a cross-community bridge._
+  _High betweenness centrality (0.094) - this node is a cross-community bridge._
 - **Why does `exp_se3()` connect `Community 2` to `Community 1`, `Community 3`?**
   _High betweenness centrality (0.092) - this node is a cross-community bridge._
 - **Are the 14 inferred relationships involving `SE3ActionPredictor` (e.g. with `OctoSE3` and `OctoEuclideanBaseline`) actually correct?**

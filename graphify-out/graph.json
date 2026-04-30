@@ -53,27 +53,27 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/experiments/ablation_rotation_tasks.py",
       "source_location": "L1",
-      "id": "ablation_rotation_tasks_rationale_1",
       "community": 8,
-      "norm_label": "ablation: rotation magnitude analysis.  this generates the key figure for the pa"
+      "norm_label": "ablation: rotation magnitude analysis.  this generates the key figure for the pa",
+      "id": "ablation_rotation_tasks_rationale_1"
     },
     {
       "label": "Compute average rotation magnitude from demonstration data.          Args:",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/experiments/ablation_rotation_tasks.py",
       "source_location": "L44",
-      "id": "ablation_rotation_tasks_rationale_44",
       "community": 8,
-      "norm_label": "compute average rotation magnitude from demonstration data.          args:"
+      "norm_label": "compute average rotation magnitude from demonstration data.          args:",
+      "id": "ablation_rotation_tasks_rationale_44"
     },
     {
       "label": "Generate data for the key scatter plot.          X-axis: average rotation magnit",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/experiments/ablation_rotation_tasks.py",
       "source_location": "L62",
-      "id": "ablation_rotation_tasks_rationale_62",
       "community": 8,
-      "norm_label": "generate data for the key scatter plot.          x-axis: average rotation magnit"
+      "norm_label": "generate data for the key scatter plot.          x-axis: average rotation magnit",
+      "id": "ablation_rotation_tasks_rationale_62"
     },
     {
       "label": "ablation_euclidean_vs_se3.py",
@@ -107,18 +107,18 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/experiments/ablation_euclidean_vs_se3.py",
       "source_location": "L1",
-      "id": "ablation_euclidean_vs_se3_rationale_1",
       "community": 11,
-      "norm_label": "ablation: euclidean vs se(3) action head on rotation-heavy tasks.  this is the k"
+      "norm_label": "ablation: euclidean vs se(3) action head on rotation-heavy tasks.  this is the k",
+      "id": "ablation_euclidean_vs_se3_rationale_1"
     },
     {
       "label": "Run experiment for a given model type and task set.          Args:         model",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/experiments/ablation_euclidean_vs_se3.py",
       "source_location": "L30",
-      "id": "ablation_euclidean_vs_se3_rationale_30",
       "community": 11,
-      "norm_label": "run experiment for a given model type and task set.          args:         model"
+      "norm_label": "run experiment for a given model type and task set.          args:         model",
+      "id": "ablation_euclidean_vs_se3_rationale_30"
     },
     {
       "label": "auto_eval.py",
@@ -139,12 +139,21 @@
       "norm_label": "make_phase_a_configs.py"
     },
     {
+      "label": "test_octo.py",
+      "file_type": "code",
+      "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/scratch/test_octo.py",
+      "source_location": "L1",
+      "id": "home_user_desktop_vla_projects_q1_s3_godsec_scratch_test_octo_py",
+      "community": 15,
+      "norm_label": "test_octo.py"
+    },
+    {
       "label": "__init__.py",
       "file_type": "code",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/__init__.py",
       "source_location": "L1",
       "id": "home_user_desktop_vla_projects_q1_s3_godsec_src_init_py",
-      "community": 15,
+      "community": 16,
       "norm_label": "__init__.py"
     },
     {
@@ -215,36 +224,36 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/train.py",
       "source_location": "L1",
-      "id": "train_rationale_1",
       "community": 0,
-      "norm_label": "training script for se(3)-vla controlled experiments.  supports: - se(3) flow ma"
+      "norm_label": "training script for se(3)-vla controlled experiments.  supports: - se(3) flow ma",
+      "id": "train_rationale_1"
     },
     {
       "label": "Create backbone based on config['model']['backbone_kind'].",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/train.py",
       "source_location": "L41",
-      "id": "train_rationale_41",
       "community": 0,
-      "norm_label": "create backbone based on config['model']['backbone_kind']."
+      "norm_label": "create backbone based on config['model']['backbone_kind'].",
+      "id": "train_rationale_41"
     },
     {
       "label": "Run validation on a single dataloader, return metrics dict.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/train.py",
       "source_location": "L108",
-      "id": "train_rationale_108",
       "community": 0,
-      "norm_label": "run validation on a single dataloader, return metrics dict."
+      "norm_label": "run validation on a single dataloader, return metrics dict.",
+      "id": "train_rationale_108"
     },
     {
       "label": "Validate on all family loaders, return nested dict.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/train.py",
       "source_location": "L147",
-      "id": "train_rationale_147",
       "community": 0,
-      "norm_label": "validate on all family loaders, return nested dict."
+      "norm_label": "validate on all family loaders, return nested dict.",
+      "id": "train_rationale_147"
     },
     {
       "label": "evaluate.py",
@@ -305,36 +314,36 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/evaluate.py",
       "source_location": "L1",
-      "id": "evaluate_rationale_1",
       "community": 0,
-      "norm_label": "evaluation script for se(3)-vla controlled experiments.  reports per-family metr"
+      "norm_label": "evaluation script for se(3)-vla controlled experiments.  reports per-family metr",
+      "id": "evaluate_rationale_1"
     },
     {
       "label": "Create backbone based on config.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/evaluate.py",
       "source_location": "L36",
-      "id": "evaluate_rationale_36",
       "community": 0,
-      "norm_label": "create backbone based on config."
+      "norm_label": "create backbone based on config.",
+      "id": "evaluate_rationale_36"
     },
     {
       "label": "Build model from config.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/evaluate.py",
       "source_location": "L47",
-      "id": "evaluate_rationale_47",
       "community": 0,
-      "norm_label": "build model from config."
+      "norm_label": "build model from config.",
+      "id": "evaluate_rationale_47"
     },
     {
       "label": "Evaluate on a single dataloader.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/evaluate.py",
       "source_location": "L75",
-      "id": "evaluate_rationale_75",
       "community": 0,
-      "norm_label": "evaluate on a single dataloader."
+      "norm_label": "evaluate on a single dataloader.",
+      "id": "evaluate_rationale_75"
     },
     {
       "label": "__init__.py",
@@ -342,7 +351,7 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/__init__.py",
       "source_location": "L1",
       "id": "home_user_desktop_vla_projects_q1_s3_godsec_src_utils_init_py",
-      "community": 16,
+      "community": 17,
       "norm_label": "__init__.py"
     },
     {
@@ -458,108 +467,108 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L1",
-      "id": "se3_utils_rationale_1",
       "community": 2,
-      "norm_label": "se(3) utility operations for riemannian flow matching.  provides numerically sta"
+      "norm_label": "se(3) utility operations for riemannian flow matching.  provides numerically sta",
+      "id": "se3_utils_rationale_1"
     },
     {
       "label": "Hat map: R\u00b3 \u2192 so(3) (skew-symmetric matrix).          Args:         omega: [B, 3",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L17",
-      "id": "se3_utils_rationale_17",
       "community": 2,
-      "norm_label": "hat map: r3 \u2192 so(3) (skew-symmetric matrix).          args:         omega: [b, 3"
+      "norm_label": "hat map: r3 \u2192 so(3) (skew-symmetric matrix).          args:         omega: [b, 3",
+      "id": "se3_utils_rationale_17"
     },
     {
       "label": "Numerically stable exponential map for SO(3).          Rodrigues formula with Ta",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L38",
-      "id": "se3_utils_rationale_38",
       "community": 2,
-      "norm_label": "numerically stable exponential map for so(3).          rodrigues formula with ta"
+      "norm_label": "numerically stable exponential map for so(3).          rodrigues formula with ta",
+      "id": "se3_utils_rationale_38"
     },
     {
       "label": "Logarithmic map for SO(3).          Args:         R: [B, 3, 3] rotation matrices",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L79",
-      "id": "se3_utils_rationale_79",
       "community": 2,
-      "norm_label": "logarithmic map for so(3).          args:         r: [b, 3, 3] rotation matrices"
+      "norm_label": "logarithmic map for so(3).          args:         r: [b, 3, 3] rotation matrices",
+      "id": "se3_utils_rationale_79"
     },
     {
       "label": "Exponential map for SE(3).          Args:         xi: [B, 6] vectors in se(3) (f",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L132",
-      "id": "se3_utils_rationale_132",
       "community": 2,
-      "norm_label": "exponential map for se(3).          args:         xi: [b, 6] vectors in se(3) (f"
+      "norm_label": "exponential map for se(3).          args:         xi: [b, 6] vectors in se(3) (f",
+      "id": "se3_utils_rationale_132"
     },
     {
       "label": "Logarithmic map for SE(3).          Args:         T: [B, 4, 4] SE(3) matrices",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L180",
-      "id": "se3_utils_rationale_180",
       "community": 2,
-      "norm_label": "logarithmic map for se(3).          args:         t: [b, 4, 4] se(3) matrices"
+      "norm_label": "logarithmic map for se(3).          args:         t: [b, 4, 4] se(3) matrices",
+      "id": "se3_utils_rationale_180"
     },
     {
       "label": "Inverse of SE(3) matrix.          T^{-1} = [R^T | -R^T * t]               [  0 |",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L225",
-      "id": "se3_utils_rationale_225",
       "community": 2,
-      "norm_label": "inverse of se(3) matrix.          t^{-1} = [r^t | -r^t * t]               [  0 |"
+      "norm_label": "inverse of se(3) matrix.          t^{-1} = [r^t | -r^t * t]               [  0 |",
+      "id": "se3_utils_rationale_225"
     },
     {
       "label": "Geodesic distance between two SE(3) poses.          d(T1, T2) = ||log(T1^{-1} *",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L252",
-      "id": "se3_utils_rationale_252",
       "community": 5,
-      "norm_label": "geodesic distance between two se(3) poses.          d(t1, t2) = ||log(t1^{-1} *"
+      "norm_label": "geodesic distance between two se(3) poses.          d(t1, t2) = ||log(t1^{-1} *",
+      "id": "se3_utils_rationale_252"
     },
     {
       "label": "Geodesic distance on SO(3) only (ignoring translation).          Args:         T",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L284",
-      "id": "se3_utils_rationale_284",
       "community": 5,
-      "norm_label": "geodesic distance on so(3) only (ignoring translation).          args:         t"
+      "norm_label": "geodesic distance on so(3) only (ignoring translation).          args:         t",
+      "id": "se3_utils_rationale_284"
     },
     {
       "label": "Geodesic interpolation on SE(3).          T(t) = T0 * exp(t * log(T0^{-1} * T1))",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L306",
-      "id": "se3_utils_rationale_306",
       "community": 2,
-      "norm_label": "geodesic interpolation on se(3).          t(t) = t0 * exp(t * log(t0^{-1} * t1))"
+      "norm_label": "geodesic interpolation on se(3).          t(t) = t0 * exp(t * log(t0^{-1} * t1))",
+      "id": "se3_utils_rationale_306"
     },
     {
       "label": "Sample from a Gaussian distribution on se(3), then map to SE(3).          This i",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L328",
-      "id": "se3_utils_rationale_328",
       "community": 2,
-      "norm_label": "sample from a gaussian distribution on se(3), then map to se(3).          this i"
+      "norm_label": "sample from a gaussian distribution on se(3), then map to se(3).          this i",
+      "id": "se3_utils_rationale_328"
     },
     {
       "label": "Extract the rotation angle from an SE(3) matrix.          Args:         T: [B, 4",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/se3_utils.py",
       "source_location": "L351",
-      "id": "se3_utils_rationale_351",
       "community": 8,
-      "norm_label": "extract the rotation angle from an se(3) matrix.          args:         t: [b, 4"
+      "norm_label": "extract the rotation angle from an se(3) matrix.          args:         t: [b, 4",
+      "id": "se3_utils_rationale_351"
     },
     {
       "label": "metrics.py",
@@ -629,63 +638,63 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L1",
-      "id": "metrics_rationale_1",
       "community": 5,
-      "norm_label": "metrics for evaluating se(3) action prediction.  includes: - geodesic action-ece"
+      "norm_label": "metrics for evaluating se(3) action prediction.  includes: - geodesic action-ece",
+      "id": "metrics_rationale_1"
     },
     {
       "label": "Root Mean Squared Geodesic Error.          Args:         X_pred: [B, 4, 4] predi",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L17",
-      "id": "metrics_rationale_17",
       "community": 5,
-      "norm_label": "root mean squared geodesic error.          args:         x_pred: [b, 4, 4] predi"
+      "norm_label": "root mean squared geodesic error.          args:         x_pred: [b, 4, 4] predi",
+      "id": "metrics_rationale_17"
     },
     {
       "label": "Root Mean Squared Rotation Error (SO(3) only).          Args:         X_pred: [B",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L32",
-      "id": "metrics_rationale_32",
       "community": 5,
-      "norm_label": "root mean squared rotation error (so(3) only).          args:         x_pred: [b"
+      "norm_label": "root mean squared rotation error (so(3) only).          args:         x_pred: [b",
+      "id": "metrics_rationale_32"
     },
     {
       "label": "Root Mean Squared Translation Error.          Args:         X_pred: [B, 4, 4] pr",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L47",
-      "id": "metrics_rationale_47",
       "community": 5,
-      "norm_label": "root mean squared translation error.          args:         x_pred: [b, 4, 4] pr"
+      "norm_label": "root mean squared translation error.          args:         x_pred: [b, 4, 4] pr",
+      "id": "metrics_rationale_47"
     },
     {
       "label": "Geodesic Action Expected Calibration Error (novel metric).          Measures how",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L67",
-      "id": "metrics_rationale_67",
       "community": 5,
-      "norm_label": "geodesic action expected calibration error (novel metric).          measures how"
+      "norm_label": "geodesic action expected calibration error (novel metric).          measures how",
+      "id": "metrics_rationale_67"
     },
     {
       "label": "Coverage metric for conformal prediction on SE(3).          Measures whether the",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L120",
-      "id": "metrics_rationale_120",
       "community": 5,
-      "norm_label": "coverage metric for conformal prediction on se(3).          measures whether the"
+      "norm_label": "coverage metric for conformal prediction on se(3).          measures whether the",
+      "id": "metrics_rationale_120"
     },
     {
       "label": "Compute success rate binned by rotation magnitude.          This is the key anal",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L162",
-      "id": "metrics_rationale_162",
       "community": 8,
-      "norm_label": "compute success rate binned by rotation magnitude.          this is the key anal"
+      "norm_label": "compute success rate binned by rotation magnitude.          this is the key anal",
+      "id": "metrics_rationale_162"
     },
     {
       "label": "visualization.py",
@@ -737,45 +746,45 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/visualization.py",
       "source_location": "L1",
-      "id": "visualization_rationale_1",
       "community": 10,
-      "norm_label": "visualization utilities for se(3)-vla experiments.  generates figures for the pa"
+      "norm_label": "visualization utilities for se(3)-vla experiments.  generates figures for the pa",
+      "id": "visualization_rationale_1"
     },
     {
       "label": "KEY FIGURE: Scatter plot of rotation magnitude vs \u0394(success rate).          Vali",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/visualization.py",
       "source_location": "L18",
-      "id": "visualization_rationale_18",
       "community": 10,
-      "norm_label": "key figure: scatter plot of rotation magnitude vs \u03b4(success rate).          vali"
+      "norm_label": "key figure: scatter plot of rotation magnitude vs \u03b4(success rate).          vali",
+      "id": "visualization_rationale_18"
     },
     {
       "label": "Bar chart comparing Euclidean vs SE(3) success rates per task.          Args:",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/visualization.py",
       "source_location": "L76",
-      "id": "visualization_rationale_76",
       "community": 10,
-      "norm_label": "bar chart comparing euclidean vs se(3) success rates per task.          args:"
+      "norm_label": "bar chart comparing euclidean vs se(3) success rates per task.          args:",
+      "id": "visualization_rationale_76"
     },
     {
       "label": "Line plot of flow integration steps vs success rate.          Args:         n_st",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/visualization.py",
       "source_location": "L114",
-      "id": "visualization_rationale_114",
       "community": 10,
-      "norm_label": "line plot of flow integration steps vs success rate.          args:         n_st"
+      "norm_label": "line plot of flow integration steps vs success rate.          args:         n_st",
+      "id": "visualization_rationale_114"
     },
     {
       "label": "Calibration plot comparing Euclidean and SE(3) Action-ECE.          Args:",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/visualization.py",
       "source_location": "L146",
-      "id": "visualization_rationale_146",
       "community": 10,
-      "norm_label": "calibration plot comparing euclidean and se(3) action-ece.          args:"
+      "norm_label": "calibration plot comparing euclidean and se(3) action-ece.          args:",
+      "id": "visualization_rationale_146"
     },
     {
       "label": "__init__.py",
@@ -783,7 +792,7 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/training/__init__.py",
       "source_location": "L1",
       "id": "home_user_desktop_vla_projects_q1_s3_godsec_src_training_init_py",
-      "community": 17,
+      "community": 18,
       "norm_label": "__init__.py"
     },
     {
@@ -917,72 +926,72 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/training/data_loader.py",
       "source_location": "L1",
-      "id": "data_loader_rationale_1",
       "community": 3,
-      "norm_label": "synthetic se(3) demonstration dataset for controlled experiments.  generates syn"
+      "norm_label": "synthetic se(3) demonstration dataset for controlled experiments.  generates syn",
+      "id": "data_loader_rationale_1"
     },
     {
       "label": "Sample n unit vectors uniformly on S\u00b2.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/training/data_loader.py",
       "source_location": "L27",
-      "id": "data_loader_rationale_27",
       "community": 3,
-      "norm_label": "sample n unit vectors uniformly on s2."
+      "norm_label": "sample n unit vectors uniformly on s2.",
+      "id": "data_loader_rationale_27"
     },
     {
       "label": "Synthetic dataset with clean bimodal rotation/translation families.      Each sa",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/training/data_loader.py",
       "source_location": "L35",
-      "id": "data_loader_rationale_35",
       "community": 3,
-      "norm_label": "synthetic dataset with clean bimodal rotation/translation families.      each sa"
+      "norm_label": "synthetic dataset with clean bimodal rotation/translation families.      each sa",
+      "id": "data_loader_rationale_35"
     },
     {
       "label": "Args:             n_samples: Number of samples to generate             task_type",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/training/data_loader.py",
       "source_location": "L59",
-      "id": "data_loader_rationale_59",
       "community": 3,
-      "norm_label": "args:             n_samples: number of samples to generate             task_type"
+      "norm_label": "args:             n_samples: number of samples to generate             task_type",
+      "id": "data_loader_rationale_59"
     },
     {
       "label": "Generate SE(3) targets with hard-bounded rotation/translation.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/training/data_loader.py",
       "source_location": "L98",
-      "id": "data_loader_rationale_98",
       "community": 3,
-      "norm_label": "generate se(3) targets with hard-bounded rotation/translation."
+      "norm_label": "generate se(3) targets with hard-bounded rotation/translation.",
+      "id": "data_loader_rationale_98"
     },
     {
       "label": "Generate synthetic images correlated with target action.          Encodes rotati",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/training/data_loader.py",
       "source_location": "L135",
-      "id": "data_loader_rationale_135",
       "community": 3,
-      "norm_label": "generate synthetic images correlated with target action.          encodes rotati"
+      "norm_label": "generate synthetic images correlated with target action.          encodes rotati",
+      "id": "data_loader_rationale_135"
     },
     {
       "label": "Combines rotation_heavy and translation_heavy datasets.      Used for training (",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/training/data_loader.py",
       "source_location": "L202",
-      "id": "data_loader_rationale_202",
       "community": 3,
-      "norm_label": "combines rotation_heavy and translation_heavy datasets.      used for training ("
+      "norm_label": "combines rotation_heavy and translation_heavy datasets.      used for training (",
+      "id": "data_loader_rationale_202"
     },
     {
       "label": "Create train and validation dataloaders.      Training uses a combined dataset (",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/training/data_loader.py",
       "source_location": "L241",
-      "id": "data_loader_rationale_241",
       "community": 3,
-      "norm_label": "create train and validation dataloaders.      training uses a combined dataset ("
+      "norm_label": "create train and validation dataloaders.      training uses a combined dataset (",
+      "id": "data_loader_rationale_241"
     },
     {
       "label": "scene_id_backbone.py",
@@ -1034,36 +1043,36 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/scene_id_backbone.py",
       "source_location": "L1",
-      "id": "scene_id_backbone_rationale_1",
       "community": 0,
-      "norm_label": "scene-id backbone \u2014 deterministic embedding for controlled experiments.  instead"
+      "norm_label": "scene-id backbone \u2014 deterministic embedding for controlled experiments.  instead",
+      "id": "scene_id_backbone_rationale_1"
     },
     {
       "label": "Backbone that returns a learned embedding for each task_id.      This gives the",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/scene_id_backbone.py",
       "source_location": "L18",
-      "id": "scene_id_backbone_rationale_18",
       "community": 0,
-      "norm_label": "backbone that returns a learned embedding for each task_id.      this gives the"
+      "norm_label": "backbone that returns a learned embedding for each task_id.      this gives the",
+      "id": "scene_id_backbone_rationale_18"
     },
     {
       "label": "Args:             n_tasks: Number of distinct task/scene IDs             hidden_",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/scene_id_backbone.py",
       "source_location": "L30",
-      "id": "scene_id_backbone_rationale_30",
       "community": 0,
-      "norm_label": "args:             n_tasks: number of distinct task/scene ids             hidden_"
+      "norm_label": "args:             n_tasks: number of distinct task/scene ids             hidden_",
+      "id": "scene_id_backbone_rationale_30"
     },
     {
       "label": "Encode observations using task_id embedding.          Args:             observat",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/scene_id_backbone.py",
       "source_location": "L44",
-      "id": "scene_id_backbone_rationale_44",
       "community": 0,
-      "norm_label": "encode observations using task_id embedding.          args:             observat"
+      "norm_label": "encode observations using task_id embedding.          args:             observat",
+      "id": "scene_id_backbone_rationale_44"
     },
     {
       "label": "__init__.py",
@@ -1071,7 +1080,7 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/__init__.py",
       "source_location": "L1",
       "id": "home_user_desktop_vla_projects_q1_s3_godsec_src_models_init_py",
-      "community": 18,
+      "community": 19,
       "norm_label": "__init__.py"
     },
     {
@@ -1196,108 +1205,108 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L1",
-      "id": "se3_action_head_rationale_1",
       "community": 7,
-      "norm_label": "se(3) flow matching action head for vision-language-action models.  this module"
+      "norm_label": "se(3) flow matching action head for vision-language-action models.  this module",
+      "id": "se3_action_head_rationale_1"
     },
     {
       "label": "Sinusoidal positional encoding for the time parameter t \u2208 [0, 1].",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L17",
-      "id": "se3_action_head_rationale_17",
       "community": 7,
-      "norm_label": "sinusoidal positional encoding for the time parameter t \u2208 [0, 1]."
+      "norm_label": "sinusoidal positional encoding for the time parameter t \u2208 [0, 1].",
+      "id": "se3_action_head_rationale_17"
     },
     {
       "label": "Args:             t: [B, 1] time values in [0, 1]         Returns:             e",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L24",
-      "id": "se3_action_head_rationale_24",
       "community": 7,
-      "norm_label": "args:             t: [b, 1] time values in [0, 1]         returns:             e"
+      "norm_label": "args:             t: [b, 1] time values in [0, 1]         returns:             e",
+      "id": "se3_action_head_rationale_24"
     },
     {
       "label": "Riemannian flow matching head on SE(3).          Predicts a velocity field in th",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L39",
-      "id": "se3_action_head_rationale_39",
       "community": 7,
-      "norm_label": "riemannian flow matching head on se(3).          predicts a velocity field in th"
+      "norm_label": "riemannian flow matching head on se(3).          predicts a velocity field in th",
+      "id": "se3_action_head_rationale_39"
     },
     {
       "label": "Args:             hidden_dim: Dimension of the VLA's hidden state             he",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L61",
-      "id": "se3_action_head_rationale_61",
       "community": 7,
-      "norm_label": "args:             hidden_dim: dimension of the vla's hidden state             he"
+      "norm_label": "args:             hidden_dim: dimension of the vla's hidden state             he",
+      "id": "se3_action_head_rationale_61"
     },
     {
       "label": "Predict velocity in se(3) conditioned on VLA state and current pose.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L102",
-      "id": "se3_action_head_rationale_102",
       "community": 7,
-      "norm_label": "predict velocity in se(3) conditioned on vla state and current pose."
+      "norm_label": "predict velocity in se(3) conditioned on vla state and current pose.",
+      "id": "se3_action_head_rationale_102"
     },
     {
       "label": "Complete SE(3) action prediction module.          Wraps the flow head with:",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L129",
-      "id": "se3_action_head_rationale_129",
       "community": 1,
-      "norm_label": "complete se(3) action prediction module.          wraps the flow head with:"
+      "norm_label": "complete se(3) action prediction module.          wraps the flow head with:",
+      "id": "se3_action_head_rationale_129"
     },
     {
       "label": "Args:             hidden_dim: VLA hidden state dimension             head_hidden",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L150",
-      "id": "se3_action_head_rationale_150",
       "community": 7,
-      "norm_label": "args:             hidden_dim: vla hidden state dimension             head_hidden"
+      "norm_label": "args:             hidden_dim: vla hidden state dimension             head_hidden",
+      "id": "se3_action_head_rationale_150"
     },
     {
       "label": "Sample from the source distribution (Gaussian on se(3)).",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L178",
-      "id": "se3_action_head_rationale_178",
       "community": 1,
-      "norm_label": "sample from the source distribution (gaussian on se(3))."
+      "norm_label": "sample from the source distribution (gaussian on se(3)).",
+      "id": "se3_action_head_rationale_178"
     },
     {
       "label": "Predict action on SE(3) by integrating the flow.                  Args:",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L183",
-      "id": "se3_action_head_rationale_183",
       "community": 1,
-      "norm_label": "predict action on se(3) by integrating the flow.                  args:"
+      "norm_label": "predict action on se(3) by integrating the flow.                  args:",
+      "id": "se3_action_head_rationale_183"
     },
     {
       "label": "Predict a chunk of H future actions on SE(3).                  Each action in th",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L220",
-      "id": "se3_action_head_rationale_220",
       "community": 1,
-      "norm_label": "predict a chunk of h future actions on se(3).                  each action in th"
+      "norm_label": "predict a chunk of h future actions on se(3).                  each action in th",
+      "id": "se3_action_head_rationale_220"
     },
     {
       "label": "Compute the Riemannian flow matching loss on SE(3).                  The loss is",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L250",
-      "id": "se3_action_head_rationale_250",
       "community": 2,
-      "norm_label": "compute the riemannian flow matching loss on se(3).                  the loss is"
+      "norm_label": "compute the riemannian flow matching loss on se(3).                  the loss is",
+      "id": "se3_action_head_rationale_250"
     },
     {
       "label": "mock_backbone.py",
@@ -1349,27 +1358,27 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/mock_backbone.py",
       "source_location": "L1",
-      "id": "mock_backbone_rationale_1",
       "community": 0,
-      "norm_label": "mock octo backbone for standalone training validation.  replaces the real pretra"
+      "norm_label": "mock octo backbone for standalone training validation.  replaces the real pretra",
+      "id": "mock_backbone_rationale_1"
     },
     {
       "label": "Lightweight mock of the Octo VLA backbone.      Takes image observations and lan",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/mock_backbone.py",
       "source_location": "L16",
-      "id": "mock_backbone_rationale_16",
       "community": 0,
-      "norm_label": "lightweight mock of the octo vla backbone.      takes image observations and lan"
+      "norm_label": "lightweight mock of the octo vla backbone.      takes image observations and lan",
+      "id": "mock_backbone_rationale_16"
     },
     {
       "label": "Encode observations and language into hidden state.          Args:             o",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/mock_backbone.py",
       "source_location": "L63",
-      "id": "mock_backbone_rationale_63",
       "community": 0,
-      "norm_label": "encode observations and language into hidden state.          args:             o"
+      "norm_label": "encode observations and language into hidden state.          args:             o",
+      "id": "mock_backbone_rationale_63"
     },
     {
       "label": "octo_adapter.py",
@@ -1520,99 +1529,99 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L1",
-      "id": "octo_adapter_rationale_1",
       "community": 1,
-      "norm_label": "octo vla adapter \u2014 plugs se(3) action head into pretrained octo.  this module wr"
+      "norm_label": "octo vla adapter \u2014 plugs se(3) action head into pretrained octo.  this module wr",
+      "id": "octo_adapter_rationale_1"
     },
     {
       "label": "Octo VLA with SE(3) flow matching action head.          Architecture:         [P",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L15",
-      "id": "octo_adapter_rationale_15",
       "community": 1,
-      "norm_label": "octo vla with se(3) flow matching action head.          architecture:         [p"
+      "norm_label": "octo vla with se(3) flow matching action head.          architecture:         [p",
+      "id": "octo_adapter_rationale_15"
     },
     {
       "label": "Args:             octo_model: Pretrained Octo model instance             hidden_",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L42",
-      "id": "octo_adapter_rationale_42",
       "community": 1,
-      "norm_label": "args:             octo_model: pretrained octo model instance             hidden_"
+      "norm_label": "args:             octo_model: pretrained octo model instance             hidden_",
+      "id": "octo_adapter_rationale_42"
     },
     {
       "label": "Get hidden state from the frozen Octo backbone.                  Args:",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L75",
-      "id": "octo_adapter_rationale_75",
       "community": 1,
-      "norm_label": "get hidden state from the frozen octo backbone.                  args:"
+      "norm_label": "get hidden state from the frozen octo backbone.                  args:",
+      "id": "octo_adapter_rationale_75"
     },
     {
       "label": "Full forward pass: encode observations \u2192 predict SE(3) action.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L93",
-      "id": "octo_adapter_rationale_93",
       "community": 1,
-      "norm_label": "full forward pass: encode observations \u2192 predict se(3) action."
+      "norm_label": "full forward pass: encode observations \u2192 predict se(3) action.",
+      "id": "octo_adapter_rationale_93"
     },
     {
       "label": "Predict a chunk of future actions on SE(3).                  Args:             o",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L112",
-      "id": "octo_adapter_rationale_112",
       "community": 1,
-      "norm_label": "predict a chunk of future actions on se(3).                  args:             o"
+      "norm_label": "predict a chunk of future actions on se(3).                  args:             o",
+      "id": "octo_adapter_rationale_112"
     },
     {
       "label": "Compute training loss.                  Args:             observations: dict wit",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L134",
-      "id": "octo_adapter_rationale_134",
       "community": 1,
-      "norm_label": "compute training loss.                  args:             observations: dict wit"
+      "norm_label": "compute training loss.                  args:             observations: dict wit",
+      "id": "octo_adapter_rationale_134"
     },
     {
       "label": "Return only the trainable parameters (SE(3) head).",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L154",
-      "id": "octo_adapter_rationale_154",
       "community": 1,
-      "norm_label": "return only the trainable parameters (se(3) head)."
+      "norm_label": "return only the trainable parameters (se(3) head).",
+      "id": "octo_adapter_rationale_154"
     },
     {
       "label": "Count total and trainable parameters.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L158",
-      "id": "octo_adapter_rationale_158",
       "community": 1,
-      "norm_label": "count total and trainable parameters."
+      "norm_label": "count total and trainable parameters.",
+      "id": "octo_adapter_rationale_158"
     },
     {
       "label": "Octo with Euclidean action head (baseline for comparison).          This is the",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L170",
-      "id": "octo_adapter_rationale_170",
       "community": 1,
-      "norm_label": "octo with euclidean action head (baseline for comparison).          this is the"
+      "norm_label": "octo with euclidean action head (baseline for comparison).          this is the",
+      "id": "octo_adapter_rationale_170"
     },
     {
       "label": "Count total and trainable parameters.",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L238",
-      "id": "octo_adapter_rationale_238",
       "community": 9,
-      "norm_label": "count total and trainable parameters."
+      "norm_label": "count total and trainable parameters.",
+      "id": "octo_adapter_rationale_238"
     },
     {
       "label": "se3_layers.py",
@@ -1709,63 +1718,63 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_layers.py",
       "source_location": "L1",
-      "id": "se3_layers_rationale_1",
       "community": 6,
-      "norm_label": "se(3)-specific neural network layers.  provides layers that operate directly on"
+      "norm_label": "se(3)-specific neural network layers.  provides layers that operate directly on",
+      "id": "se3_layers_rationale_1"
     },
     {
       "label": "Linear layer that operates on SE(3) tangent space.          Maps se(3) vectors t",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_layers.py",
       "source_location": "L13",
-      "id": "se3_layers_rationale_13",
       "community": 6,
-      "norm_label": "linear layer that operates on se(3) tangent space.          maps se(3) vectors t"
+      "norm_label": "linear layer that operates on se(3) tangent space.          maps se(3) vectors t",
+      "id": "se3_layers_rationale_13"
     },
     {
       "label": "Args:             xi: [B, ..., 6] se(3) vectors         Returns:             out",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_layers.py",
       "source_location": "L25",
-      "id": "se3_layers_rationale_25",
       "community": 6,
-      "norm_label": "args:             xi: [b, ..., 6] se(3) vectors         returns:             out"
+      "norm_label": "args:             xi: [b, ..., 6] se(3) vectors         returns:             out",
+      "id": "se3_layers_rationale_25"
     },
     {
       "label": "Layer normalization for se(3) vectors.          Normalizes rotation and translat",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_layers.py",
       "source_location": "L35",
-      "id": "se3_layers_rationale_35",
       "community": 6,
-      "norm_label": "layer normalization for se(3) vectors.          normalizes rotation and translat"
+      "norm_label": "layer normalization for se(3) vectors.          normalizes rotation and translat",
+      "id": "se3_layers_rationale_35"
     },
     {
       "label": "Args:             xi: [B, 6] se(3) vectors (first 3: rotation, last 3: translati",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_layers.py",
       "source_location": "L47",
-      "id": "se3_layers_rationale_47",
       "community": 6,
-      "norm_label": "args:             xi: [b, 6] se(3) vectors (first 3: rotation, last 3: translati"
+      "norm_label": "args:             xi: [b, 6] se(3) vectors (first 3: rotation, last 3: translati",
+      "id": "se3_layers_rationale_47"
     },
     {
       "label": "Attention mechanism that uses geodesic distance as bias.          For attending",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_layers.py",
       "source_location": "L64",
-      "id": "se3_layers_rationale_64",
       "community": 6,
-      "norm_label": "attention mechanism that uses geodesic distance as bias.          for attending"
+      "norm_label": "attention mechanism that uses geodesic distance as bias.          for attending",
+      "id": "se3_layers_rationale_64"
     },
     {
       "label": "Args:             h: [B, N, hidden_dim] hidden states             poses: [B, N,",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_layers.py",
       "source_location": "L84",
-      "id": "se3_layers_rationale_84",
       "community": 6,
-      "norm_label": "args:             h: [b, n, hidden_dim] hidden states             poses: [b, n,"
+      "norm_label": "args:             h: [b, n, hidden_dim] hidden states             poses: [b, n,",
+      "id": "se3_layers_rationale_84"
     },
     {
       "label": "geodesic_loss.py",
@@ -1889,108 +1898,108 @@
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L1",
-      "id": "geodesic_loss_rationale_1",
       "community": 4,
-      "norm_label": "geodesic loss functions for se(3) action prediction."
+      "norm_label": "geodesic loss functions for se(3) action prediction.",
+      "id": "geodesic_loss_rationale_1"
     },
     {
       "label": "Geodesic MSE loss on SE(3).          L = ||log(X_pred^{-1} * X_target)||\u00b2",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L11",
-      "id": "geodesic_loss_rationale_11",
       "community": 0,
-      "norm_label": "geodesic mse loss on se(3).          l = ||log(x_pred^{-1} * x_target)||2"
+      "norm_label": "geodesic mse loss on se(3).          l = ||log(x_pred^{-1} * x_target)||2",
+      "id": "geodesic_loss_rationale_11"
     },
     {
       "label": "Args:             rotation_weight: Weight for rotation component             tra",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L21",
-      "id": "geodesic_loss_rationale_21",
       "community": 4,
-      "norm_label": "args:             rotation_weight: weight for rotation component             tra"
+      "norm_label": "args:             rotation_weight: weight for rotation component             tra",
+      "id": "geodesic_loss_rationale_21"
     },
     {
       "label": "Args:             X_pred: [B, 4, 4] Predicted SE(3) poses             X_target:",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L31",
-      "id": "geodesic_loss_rationale_31",
       "community": 2,
-      "norm_label": "args:             x_pred: [b, 4, 4] predicted se(3) poses             x_target:"
+      "norm_label": "args:             x_pred: [b, 4, 4] predicted se(3) poses             x_target:",
+      "id": "geodesic_loss_rationale_31"
     },
     {
       "label": "Geodesic distance loss on SE(3).          L = ||log(X_pred^{-1} * X_target)||",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L54",
-      "id": "geodesic_loss_rationale_54",
       "community": 4,
-      "norm_label": "geodesic distance loss on se(3).          l = ||log(x_pred^{-1} * x_target)||"
+      "norm_label": "geodesic distance loss on se(3).          l = ||log(x_pred^{-1} * x_target)||",
+      "id": "geodesic_loss_rationale_54"
     },
     {
       "label": "Args:             X_pred: [B, 4, 4] Predicted SE(3) poses             X_target:",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L63",
-      "id": "geodesic_loss_rationale_63",
       "community": 4,
-      "norm_label": "args:             x_pred: [b, 4, 4] predicted se(3) poses             x_target:"
+      "norm_label": "args:             x_pred: [b, 4, 4] predicted se(3) poses             x_target:",
+      "id": "geodesic_loss_rationale_63"
     },
     {
       "label": "Geodesic Huber loss on SE(3).          Combines L1 and L2 loss for robustness to",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L76",
-      "id": "geodesic_loss_rationale_76",
       "community": 4,
-      "norm_label": "geodesic huber loss on se(3).          combines l1 and l2 loss for robustness to"
+      "norm_label": "geodesic huber loss on se(3).          combines l1 and l2 loss for robustness to",
+      "id": "geodesic_loss_rationale_76"
     },
     {
       "label": "Args:             X_pred: [B, 4, 4] Predicted SE(3) poses             X_target:",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L87",
-      "id": "geodesic_loss_rationale_87",
       "community": 4,
-      "norm_label": "args:             x_pred: [b, 4, 4] predicted se(3) poses             x_target:"
+      "norm_label": "args:             x_pred: [b, 4, 4] predicted se(3) poses             x_target:",
+      "id": "geodesic_loss_rationale_87"
     },
     {
       "label": "Riemannian flow matching loss on SE(3).          This is the primary training lo",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L108",
-      "id": "geodesic_loss_rationale_108",
       "community": 4,
-      "norm_label": "riemannian flow matching loss on se(3).          this is the primary training lo"
+      "norm_label": "riemannian flow matching loss on se(3).          this is the primary training lo",
+      "id": "geodesic_loss_rationale_108"
     },
     {
       "label": "Args:             v_pred: [B, 6] Predicted velocities in se(3)             v_tar",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L117",
-      "id": "geodesic_loss_rationale_117",
       "community": 4,
-      "norm_label": "args:             v_pred: [b, 6] predicted velocities in se(3)             v_tar"
+      "norm_label": "args:             v_pred: [b, 6] predicted velocities in se(3)             v_tar",
+      "id": "geodesic_loss_rationale_117"
     },
     {
       "label": "Loss on the rotation angle only (ignoring translation).          Useful for abla",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L129",
-      "id": "geodesic_loss_rationale_129",
       "community": 4,
-      "norm_label": "loss on the rotation angle only (ignoring translation).          useful for abla"
+      "norm_label": "loss on the rotation angle only (ignoring translation).          useful for abla",
+      "id": "geodesic_loss_rationale_129"
     },
     {
       "label": "Args:             X_pred: [B, 4, 4] Predicted SE(3) poses             X_target:",
       "file_type": "rationale",
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L136",
-      "id": "geodesic_loss_rationale_136",
       "community": 4,
-      "norm_label": "args:             x_pred: [b, 4, 4] predicted se(3) poses             x_target:"
+      "norm_label": "args:             x_pred: [b, 4, 4] predicted se(3) poses             x_target:",
+      "id": "geodesic_loss_rationale_136"
     }
   ],
   "links": [
@@ -2506,9 +2515,9 @@
       "weight": 0.8,
       "_src": "train_rationale_1",
       "_tgt": "octo_adapter_octose3",
+      "confidence_score": 0.5,
       "source": "train_rationale_1",
-      "target": "octo_adapter_octose3",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octose3"
     },
     {
       "relation": "uses",
@@ -2518,9 +2527,9 @@
       "weight": 0.8,
       "_src": "train_rationale_1",
       "_tgt": "octo_adapter_octoeuclideanbaseline",
+      "confidence_score": 0.5,
       "source": "train_rationale_1",
-      "target": "octo_adapter_octoeuclideanbaseline",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octoeuclideanbaseline"
     },
     {
       "relation": "uses",
@@ -2530,9 +2539,9 @@
       "weight": 0.8,
       "_src": "train_rationale_1",
       "_tgt": "mock_backbone_mockoctobackbone",
+      "confidence_score": 0.5,
       "source": "train_rationale_1",
-      "target": "mock_backbone_mockoctobackbone",
-      "confidence_score": 0.5
+      "target": "mock_backbone_mockoctobackbone"
     },
     {
       "relation": "uses",
@@ -2542,9 +2551,9 @@
       "weight": 0.8,
       "_src": "train_rationale_1",
       "_tgt": "scene_id_backbone_sceneidbackbone",
+      "confidence_score": 0.5,
       "source": "train_rationale_1",
-      "target": "scene_id_backbone_sceneidbackbone",
-      "confidence_score": 0.5
+      "target": "scene_id_backbone_sceneidbackbone"
     },
     {
       "relation": "uses",
@@ -2554,9 +2563,9 @@
       "weight": 0.8,
       "_src": "train_rationale_1",
       "_tgt": "geodesic_loss_geodesicmseloss",
+      "confidence_score": 0.5,
       "source": "train_rationale_1",
-      "target": "geodesic_loss_geodesicmseloss",
-      "confidence_score": 0.5
+      "target": "geodesic_loss_geodesicmseloss"
     },
     {
       "relation": "uses",
@@ -2566,9 +2575,9 @@
       "weight": 0.8,
       "_src": "train_rationale_41",
       "_tgt": "octo_adapter_octose3",
+      "confidence_score": 0.5,
       "source": "train_rationale_41",
-      "target": "octo_adapter_octose3",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octose3"
     },
     {
       "relation": "uses",
@@ -2578,9 +2587,9 @@
       "weight": 0.8,
       "_src": "train_rationale_41",
       "_tgt": "octo_adapter_octoeuclideanbaseline",
+      "confidence_score": 0.5,
       "source": "train_rationale_41",
-      "target": "octo_adapter_octoeuclideanbaseline",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octoeuclideanbaseline"
     },
     {
       "relation": "uses",
@@ -2590,9 +2599,9 @@
       "weight": 0.8,
       "_src": "train_rationale_41",
       "_tgt": "mock_backbone_mockoctobackbone",
+      "confidence_score": 0.5,
       "source": "train_rationale_41",
-      "target": "mock_backbone_mockoctobackbone",
-      "confidence_score": 0.5
+      "target": "mock_backbone_mockoctobackbone"
     },
     {
       "relation": "uses",
@@ -2602,9 +2611,9 @@
       "weight": 0.8,
       "_src": "train_rationale_41",
       "_tgt": "scene_id_backbone_sceneidbackbone",
+      "confidence_score": 0.5,
       "source": "train_rationale_41",
-      "target": "scene_id_backbone_sceneidbackbone",
-      "confidence_score": 0.5
+      "target": "scene_id_backbone_sceneidbackbone"
     },
     {
       "relation": "uses",
@@ -2614,9 +2623,9 @@
       "weight": 0.8,
       "_src": "train_rationale_41",
       "_tgt": "geodesic_loss_geodesicmseloss",
+      "confidence_score": 0.5,
       "source": "train_rationale_41",
-      "target": "geodesic_loss_geodesicmseloss",
-      "confidence_score": 0.5
+      "target": "geodesic_loss_geodesicmseloss"
     },
     {
       "relation": "uses",
@@ -2626,9 +2635,9 @@
       "weight": 0.8,
       "_src": "train_rationale_108",
       "_tgt": "octo_adapter_octose3",
+      "confidence_score": 0.5,
       "source": "train_rationale_108",
-      "target": "octo_adapter_octose3",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octose3"
     },
     {
       "relation": "uses",
@@ -2638,9 +2647,9 @@
       "weight": 0.8,
       "_src": "train_rationale_108",
       "_tgt": "octo_adapter_octoeuclideanbaseline",
+      "confidence_score": 0.5,
       "source": "train_rationale_108",
-      "target": "octo_adapter_octoeuclideanbaseline",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octoeuclideanbaseline"
     },
     {
       "relation": "uses",
@@ -2650,9 +2659,9 @@
       "weight": 0.8,
       "_src": "train_rationale_108",
       "_tgt": "mock_backbone_mockoctobackbone",
+      "confidence_score": 0.5,
       "source": "train_rationale_108",
-      "target": "mock_backbone_mockoctobackbone",
-      "confidence_score": 0.5
+      "target": "mock_backbone_mockoctobackbone"
     },
     {
       "relation": "uses",
@@ -2662,9 +2671,9 @@
       "weight": 0.8,
       "_src": "train_rationale_108",
       "_tgt": "scene_id_backbone_sceneidbackbone",
+      "confidence_score": 0.5,
       "source": "train_rationale_108",
-      "target": "scene_id_backbone_sceneidbackbone",
-      "confidence_score": 0.5
+      "target": "scene_id_backbone_sceneidbackbone"
     },
     {
       "relation": "uses",
@@ -2674,9 +2683,9 @@
       "weight": 0.8,
       "_src": "train_rationale_108",
       "_tgt": "geodesic_loss_geodesicmseloss",
+      "confidence_score": 0.5,
       "source": "train_rationale_108",
-      "target": "geodesic_loss_geodesicmseloss",
-      "confidence_score": 0.5
+      "target": "geodesic_loss_geodesicmseloss"
     },
     {
       "relation": "uses",
@@ -2686,9 +2695,9 @@
       "weight": 0.8,
       "_src": "train_rationale_147",
       "_tgt": "octo_adapter_octose3",
+      "confidence_score": 0.5,
       "source": "train_rationale_147",
-      "target": "octo_adapter_octose3",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octose3"
     },
     {
       "relation": "uses",
@@ -2698,9 +2707,9 @@
       "weight": 0.8,
       "_src": "train_rationale_147",
       "_tgt": "octo_adapter_octoeuclideanbaseline",
+      "confidence_score": 0.5,
       "source": "train_rationale_147",
-      "target": "octo_adapter_octoeuclideanbaseline",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octoeuclideanbaseline"
     },
     {
       "relation": "uses",
@@ -2710,9 +2719,9 @@
       "weight": 0.8,
       "_src": "train_rationale_147",
       "_tgt": "mock_backbone_mockoctobackbone",
+      "confidence_score": 0.5,
       "source": "train_rationale_147",
-      "target": "mock_backbone_mockoctobackbone",
-      "confidence_score": 0.5
+      "target": "mock_backbone_mockoctobackbone"
     },
     {
       "relation": "uses",
@@ -2722,9 +2731,9 @@
       "weight": 0.8,
       "_src": "train_rationale_147",
       "_tgt": "scene_id_backbone_sceneidbackbone",
+      "confidence_score": 0.5,
       "source": "train_rationale_147",
-      "target": "scene_id_backbone_sceneidbackbone",
-      "confidence_score": 0.5
+      "target": "scene_id_backbone_sceneidbackbone"
     },
     {
       "relation": "uses",
@@ -2734,9 +2743,9 @@
       "weight": 0.8,
       "_src": "train_rationale_147",
       "_tgt": "geodesic_loss_geodesicmseloss",
+      "confidence_score": 0.5,
       "source": "train_rationale_147",
-      "target": "geodesic_loss_geodesicmseloss",
-      "confidence_score": 0.5
+      "target": "geodesic_loss_geodesicmseloss"
     },
     {
       "relation": "contains",
@@ -3046,9 +3055,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_1",
       "_tgt": "octo_adapter_octose3",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_1",
-      "target": "octo_adapter_octose3",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octose3"
     },
     {
       "relation": "uses",
@@ -3058,9 +3067,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_1",
       "_tgt": "octo_adapter_octoeuclideanbaseline",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_1",
-      "target": "octo_adapter_octoeuclideanbaseline",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octoeuclideanbaseline"
     },
     {
       "relation": "uses",
@@ -3070,9 +3079,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_1",
       "_tgt": "mock_backbone_mockoctobackbone",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_1",
-      "target": "mock_backbone_mockoctobackbone",
-      "confidence_score": 0.5
+      "target": "mock_backbone_mockoctobackbone"
     },
     {
       "relation": "uses",
@@ -3082,9 +3091,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_1",
       "_tgt": "scene_id_backbone_sceneidbackbone",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_1",
-      "target": "scene_id_backbone_sceneidbackbone",
-      "confidence_score": 0.5
+      "target": "scene_id_backbone_sceneidbackbone"
     },
     {
       "relation": "uses",
@@ -3094,9 +3103,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_36",
       "_tgt": "octo_adapter_octose3",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_36",
-      "target": "octo_adapter_octose3",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octose3"
     },
     {
       "relation": "uses",
@@ -3106,9 +3115,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_36",
       "_tgt": "octo_adapter_octoeuclideanbaseline",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_36",
-      "target": "octo_adapter_octoeuclideanbaseline",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octoeuclideanbaseline"
     },
     {
       "relation": "uses",
@@ -3118,9 +3127,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_36",
       "_tgt": "mock_backbone_mockoctobackbone",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_36",
-      "target": "mock_backbone_mockoctobackbone",
-      "confidence_score": 0.5
+      "target": "mock_backbone_mockoctobackbone"
     },
     {
       "relation": "uses",
@@ -3130,9 +3139,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_36",
       "_tgt": "scene_id_backbone_sceneidbackbone",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_36",
-      "target": "scene_id_backbone_sceneidbackbone",
-      "confidence_score": 0.5
+      "target": "scene_id_backbone_sceneidbackbone"
     },
     {
       "relation": "uses",
@@ -3142,9 +3151,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_47",
       "_tgt": "octo_adapter_octose3",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_47",
-      "target": "octo_adapter_octose3",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octose3"
     },
     {
       "relation": "uses",
@@ -3154,9 +3163,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_47",
       "_tgt": "octo_adapter_octoeuclideanbaseline",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_47",
-      "target": "octo_adapter_octoeuclideanbaseline",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octoeuclideanbaseline"
     },
     {
       "relation": "uses",
@@ -3166,9 +3175,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_47",
       "_tgt": "mock_backbone_mockoctobackbone",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_47",
-      "target": "mock_backbone_mockoctobackbone",
-      "confidence_score": 0.5
+      "target": "mock_backbone_mockoctobackbone"
     },
     {
       "relation": "uses",
@@ -3178,9 +3187,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_47",
       "_tgt": "scene_id_backbone_sceneidbackbone",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_47",
-      "target": "scene_id_backbone_sceneidbackbone",
-      "confidence_score": 0.5
+      "target": "scene_id_backbone_sceneidbackbone"
     },
     {
       "relation": "uses",
@@ -3190,9 +3199,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_75",
       "_tgt": "octo_adapter_octose3",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_75",
-      "target": "octo_adapter_octose3",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octose3"
     },
     {
       "relation": "uses",
@@ -3202,9 +3211,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_75",
       "_tgt": "octo_adapter_octoeuclideanbaseline",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_75",
-      "target": "octo_adapter_octoeuclideanbaseline",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octoeuclideanbaseline"
     },
     {
       "relation": "uses",
@@ -3214,9 +3223,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_75",
       "_tgt": "mock_backbone_mockoctobackbone",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_75",
-      "target": "mock_backbone_mockoctobackbone",
-      "confidence_score": 0.5
+      "target": "mock_backbone_mockoctobackbone"
     },
     {
       "relation": "uses",
@@ -3226,9 +3235,9 @@
       "weight": 0.8,
       "_src": "evaluate_rationale_75",
       "_tgt": "scene_id_backbone_sceneidbackbone",
+      "confidence_score": 0.5,
       "source": "evaluate_rationale_75",
-      "target": "scene_id_backbone_sceneidbackbone",
-      "confidence_score": 0.5
+      "target": "scene_id_backbone_sceneidbackbone"
     },
     {
       "relation": "contains",
@@ -3513,8 +3522,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/training/data_loader.py",
       "source_location": "L130",
       "weight": 1.0,
-      "_src": "data_loader_syntheticse3dataset_generate_targets",
-      "_tgt": "se3_utils_exp_se3",
+      "_src": "se3_utils_exp_se3",
+      "_tgt": "data_loader_syntheticse3dataset_generate_targets",
       "source": "se3_utils_exp_se3",
       "target": "data_loader_syntheticse3dataset_generate_targets"
     },
@@ -3525,8 +3534,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L180",
       "weight": 1.0,
-      "_src": "se3_action_head_se3actionpredictor_sample_source",
-      "_tgt": "se3_utils_exp_se3",
+      "_src": "se3_utils_exp_se3",
+      "_tgt": "se3_action_head_se3actionpredictor_sample_source",
       "source": "se3_utils_exp_se3",
       "target": "se3_action_head_se3actionpredictor_sample_source"
     },
@@ -3537,8 +3546,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L212",
       "weight": 1.0,
-      "_src": "se3_action_head_se3actionpredictor_predict",
-      "_tgt": "se3_utils_exp_se3",
+      "_src": "se3_utils_exp_se3",
+      "_tgt": "se3_action_head_se3actionpredictor_predict",
       "source": "se3_utils_exp_se3",
       "target": "se3_action_head_se3actionpredictor_predict"
     },
@@ -3549,8 +3558,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L281",
       "weight": 1.0,
-      "_src": "se3_action_head_se3actionpredictor_training_loss",
-      "_tgt": "se3_utils_exp_se3",
+      "_src": "se3_utils_exp_se3",
+      "_tgt": "se3_action_head_se3actionpredictor_training_loss",
       "source": "se3_utils_exp_se3",
       "target": "se3_action_head_se3actionpredictor_training_loss"
     },
@@ -3597,8 +3606,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L114",
       "weight": 1.0,
-      "_src": "se3_action_head_se3flowhead_forward",
-      "_tgt": "se3_utils_log_se3",
+      "_src": "se3_utils_log_se3",
+      "_tgt": "se3_action_head_se3flowhead_forward",
       "source": "se3_utils_log_se3",
       "target": "se3_action_head_se3flowhead_forward"
     },
@@ -3609,8 +3618,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L275",
       "weight": 1.0,
-      "_src": "se3_action_head_se3actionpredictor_training_loss",
-      "_tgt": "se3_utils_log_se3",
+      "_src": "se3_utils_log_se3",
+      "_tgt": "se3_action_head_se3actionpredictor_training_loss",
       "source": "se3_utils_log_se3",
       "target": "se3_action_head_se3actionpredictor_training_loss"
     },
@@ -3621,8 +3630,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L40",
       "weight": 1.0,
-      "_src": "geodesic_loss_geodesicmseloss_forward",
-      "_tgt": "se3_utils_log_se3",
+      "_src": "se3_utils_log_se3",
+      "_tgt": "geodesic_loss_geodesicmseloss_forward",
       "source": "se3_utils_log_se3",
       "target": "geodesic_loss_geodesicmseloss_forward"
     },
@@ -3669,8 +3678,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/se3_action_head.py",
       "source_location": "L274",
       "weight": 1.0,
-      "_src": "se3_action_head_se3actionpredictor_training_loss",
-      "_tgt": "se3_utils_inverse_se3",
+      "_src": "se3_utils_inverse_se3",
+      "_tgt": "se3_action_head_se3actionpredictor_training_loss",
       "source": "se3_utils_inverse_se3",
       "target": "se3_action_head_se3actionpredictor_training_loss"
     },
@@ -3681,8 +3690,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L39",
       "weight": 1.0,
-      "_src": "geodesic_loss_geodesicmseloss_forward",
-      "_tgt": "se3_utils_inverse_se3",
+      "_src": "se3_utils_inverse_se3",
+      "_tgt": "geodesic_loss_geodesicmseloss_forward",
       "source": "se3_utils_inverse_se3",
       "target": "geodesic_loss_geodesicmseloss_forward"
     },
@@ -3705,8 +3714,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L27",
       "weight": 1.0,
-      "_src": "metrics_geodesic_rmse",
-      "_tgt": "se3_utils_geodesic_distance",
+      "_src": "se3_utils_geodesic_distance",
+      "_tgt": "metrics_geodesic_rmse",
       "source": "se3_utils_geodesic_distance",
       "target": "metrics_geodesic_rmse"
     },
@@ -3717,8 +3726,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L141",
       "weight": 1.0,
-      "_src": "metrics_coverage_metric",
-      "_tgt": "se3_utils_geodesic_distance",
+      "_src": "se3_utils_geodesic_distance",
+      "_tgt": "metrics_coverage_metric",
       "source": "se3_utils_geodesic_distance",
       "target": "metrics_coverage_metric"
     },
@@ -3729,8 +3738,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L71",
       "weight": 1.0,
-      "_src": "geodesic_loss_geodesicdistanceloss_forward",
-      "_tgt": "se3_utils_geodesic_distance",
+      "_src": "se3_utils_geodesic_distance",
+      "_tgt": "geodesic_loss_geodesicdistanceloss_forward",
       "source": "se3_utils_geodesic_distance",
       "target": "geodesic_loss_geodesicdistanceloss_forward"
     },
@@ -3741,8 +3750,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L95",
       "weight": 1.0,
-      "_src": "geodesic_loss_geodesichuberloss_forward",
-      "_tgt": "se3_utils_geodesic_distance",
+      "_src": "se3_utils_geodesic_distance",
+      "_tgt": "geodesic_loss_geodesichuberloss_forward",
       "source": "se3_utils_geodesic_distance",
       "target": "geodesic_loss_geodesichuberloss_forward"
     },
@@ -3765,8 +3774,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L42",
       "weight": 1.0,
-      "_src": "metrics_rotation_rmse",
-      "_tgt": "se3_utils_geodesic_distance_rotation_only",
+      "_src": "se3_utils_geodesic_distance_rotation_only",
+      "_tgt": "metrics_rotation_rmse",
       "source": "se3_utils_geodesic_distance_rotation_only",
       "target": "metrics_rotation_rmse"
     },
@@ -3777,8 +3786,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/geodesic_loss.py",
       "source_location": "L144",
       "weight": 1.0,
-      "_src": "geodesic_loss_rotationangleloss_forward",
-      "_tgt": "se3_utils_geodesic_distance_rotation_only",
+      "_src": "se3_utils_geodesic_distance_rotation_only",
+      "_tgt": "geodesic_loss_rotationangleloss_forward",
       "source": "se3_utils_geodesic_distance_rotation_only",
       "target": "geodesic_loss_rotationangleloss_forward"
     },
@@ -3825,8 +3834,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/utils/metrics.py",
       "source_location": "L179",
       "weight": 1.0,
-      "_src": "metrics_success_rate_per_rotation_bin",
-      "_tgt": "se3_utils_se3_to_rotation_angle",
+      "_src": "se3_utils_se3_to_rotation_angle",
+      "_tgt": "metrics_success_rate_per_rotation_bin",
       "source": "se3_utils_se3_to_rotation_angle",
       "target": "metrics_success_rate_per_rotation_bin"
     },
@@ -4832,11 +4841,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_octose3",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_octose3",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_octose3",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octose3"
     },
     {
       "relation": "uses",
@@ -4844,11 +4853,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_octoeuclideanbaseline",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_octoeuclideanbaseline",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_octoeuclideanbaseline",
-      "confidence_score": 0.5
+      "target": "octo_adapter_octoeuclideanbaseline"
     },
     {
       "relation": "uses",
@@ -4856,11 +4865,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_1",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_1",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_1",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_1"
     },
     {
       "relation": "uses",
@@ -4868,11 +4877,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_15",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_15",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_15",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_15"
     },
     {
       "relation": "uses",
@@ -4880,11 +4889,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_42",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_42",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_42",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_42"
     },
     {
       "relation": "uses",
@@ -4892,11 +4901,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_75",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_75",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_75",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_75"
     },
     {
       "relation": "uses",
@@ -4904,11 +4913,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_93",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_93",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_93",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_93"
     },
     {
       "relation": "uses",
@@ -4916,11 +4925,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_112",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_112",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_112",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_112"
     },
     {
       "relation": "uses",
@@ -4928,11 +4937,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_134",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_134",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_134",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_134"
     },
     {
       "relation": "uses",
@@ -4940,11 +4949,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_154",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_154",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_154",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_154"
     },
     {
       "relation": "uses",
@@ -4952,11 +4961,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_158",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_158",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_158",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_158"
     },
     {
       "relation": "uses",
@@ -4964,11 +4973,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_170",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_170",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_170",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_170"
     },
     {
       "relation": "uses",
@@ -4976,11 +4985,11 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L11",
       "weight": 0.8,
-      "_src": "octo_adapter_rationale_238",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_rationale_238",
+      "confidence_score": 0.5,
       "source": "se3_action_head_se3actionpredictor",
-      "target": "octo_adapter_rationale_238",
-      "confidence_score": 0.5
+      "target": "octo_adapter_rationale_238"
     },
     {
       "relation": "calls",
@@ -4989,8 +4998,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L67",
       "weight": 1.0,
-      "_src": "octo_adapter_octose3_init",
-      "_tgt": "se3_action_head_se3actionpredictor",
+      "_src": "se3_action_head_se3actionpredictor",
+      "_tgt": "octo_adapter_octose3_init",
       "source": "se3_action_head_se3actionpredictor",
       "target": "octo_adapter_octose3_init"
     },
@@ -5073,8 +5082,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L107",
       "weight": 1.0,
-      "_src": "octo_adapter_octose3_forward",
-      "_tgt": "se3_action_head_se3actionpredictor_predict",
+      "_src": "se3_action_head_se3actionpredictor_predict",
+      "_tgt": "octo_adapter_octose3_forward",
       "source": "se3_action_head_se3actionpredictor_predict",
       "target": "octo_adapter_octose3_forward"
     },
@@ -5109,8 +5118,8 @@
       "source_file": "/home/user/Desktop/vla_projects/q1/s3-godsec/src/models/octo_adapter.py",
       "source_location": "L148",
       "weight": 1.0,
-      "_src": "octo_adapter_octose3_compute_loss",
-      "_tgt": "se3_action_head_se3actionpredictor_training_loss",
+      "_src": "se3_action_head_se3actionpredictor_training_loss",
+      "_tgt": "octo_adapter_octose3_compute_loss",
       "source": "se3_action_head_se3actionpredictor_training_loss",
       "target": "octo_adapter_octose3_compute_loss"
     },
