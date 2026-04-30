@@ -36,6 +36,11 @@ checkpoints/
 results/
 figures/
 
+# Generated / cached
+graphify-out/
+logs/
+dry_run_out.txt
+
 # OS
 .DS_Store
 Thumbs.db
