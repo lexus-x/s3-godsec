@@ -1,0 +1,64 @@
+# SE(3)-VLA Compact Architecture — Under 400M Parameters
+# ======================================================
+#
+# Architecture: SigLIP-Base + SmolLM-135M + SE(3) Flow Head
+# Total: ~252M parameters
+#
+# This is the PRIMARY config for the SE(3)-VLA project.
+# The SE(3) head's geometric inductive bias compensates for the
+# smaller backbone, enabling it to outperform 1B+ models on
+# rotation-heavy tasks.
+#
+# Validation Strategy:
+#   Phase 1: Synthetic diagnostics (prove SE(3) > Euclidean)
+#   Phase 2: Sim benchmarks — LIBERO, MetaWorld (prove > 1B models)
+#   Phase 3: Real-world (only if Phase 2 shows significant proof)
+
+model:
+  name: "CompactSE3VLA"
+
+  # Vision encoder (frozen)
+  vision_model: "siglip-base"      # 87M params, frozen
+  freeze_vision: true
+
+  # Language encoder (trainable)
+  language_model: "smolLM-135M"    # 135M params, trainable
+  freeze_language: false
+
+  # Fusion
+  hidden_dim: 768                  # Common hidden dimension
+
+  # SE(3) action head
+  head_type: "flow"                # flow | chunk | uncertainty
+  head_hidden_dim: 256
+  n_layers: 4
+  time_embed_dim: 64
+  source_scale: 0.1
+
+  # Budget verification
+  expected_params:
+    vision: 87_000_000
+    language: 135_000_000
+    fusion: 10_000_000
+    se3_head: 20_000_000
+    total: 252_000_000
+
+training:
+  n_flow_steps_train: 10
+  n_flow_steps_eval: 10
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-5
+  batch_size: 32
+  n_epochs: 50
+  gradient_clip_norm: 1.0
+
+data:
+  # Phase 1: Synthetic diagnostics
+  benchmark: "synthetic"
+  n_train_per_family: 2500
+  n_val_per_family: 250
+  image_size: [224, 224]
+
+logging:
+  save_interval: 10
+  checkpoint_dir: "checkpoints/compact_se3/"

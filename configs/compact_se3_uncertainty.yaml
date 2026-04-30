@@ -1,0 +1,36 @@
+# SE(3)-VLA Compact — Uncertainty-Aware
+# Under 400M parameters, calibrated uncertainty via conformal prediction
+# Best for: safety-critical applications
+
+model:
+  name: "CompactSE3VLA"
+  vision_model: "siglip-base"
+  freeze_vision: true
+  language_model: "smolLM-135M"
+  freeze_language: false
+  hidden_dim: 768
+
+  head_type: "uncertainty"
+  head_hidden_dim: 256
+  n_layers: 4
+  time_embed_dim: 64
+  source_scale: 0.1
+  n_uncertainty_samples: 10
+  conformal_alpha: 0.1
+
+training:
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-5
+  batch_size: 32
+  n_epochs: 50
+  gradient_clip_norm: 1.0
+
+data:
+  benchmark: "synthetic"
+  n_train_per_family: 2500
+  n_val_per_family: 250
+  image_size: [224, 224]
+
+logging:
+  save_interval: 10
+  checkpoint_dir: "checkpoints/compact_se3/"
