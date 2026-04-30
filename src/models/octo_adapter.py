@@ -8,7 +8,7 @@ backbone frozen.
 
 import torch
 import torch.nn as nn
-from .se3_action_head import SE3ActionPredictor
+from models.se3_action_head import SE3ActionPredictor
 
 
 class OctoSE3(nn.Module):
@@ -58,6 +58,7 @@ class OctoSE3(nn.Module):
         self.n_flow_steps_eval = n_flow_steps_eval
         
         # Freeze backbone
+        self.freeze_backbone = freeze_backbone
         if freeze_backbone:
             for param in self.octo.parameters():
                 param.requires_grad = False
@@ -81,7 +82,10 @@ class OctoSE3(nn.Module):
         Returns:
             h: [B, hidden_dim] hidden state
         """
-        with torch.no_grad():
+        if self.freeze_backbone:
+            with torch.no_grad():
+                h = self.octo.encode(observations, language_instruction)
+        else:
             h = self.octo.encode(observations, language_instruction)
         return h
     
@@ -175,6 +179,7 @@ class OctoEuclideanBaseline(nn.Module):
         
         self.octo = octo_model
         self.hidden_dim = hidden_dim
+        self.freeze_backbone = freeze_backbone
         
         if freeze_backbone:
             for param in self.octo.parameters():
@@ -190,7 +195,10 @@ class OctoEuclideanBaseline(nn.Module):
         )
     
     def encode(self, observations, language_instruction):
-        with torch.no_grad():
+        if self.freeze_backbone:
+            with torch.no_grad():
+                h = self.octo.encode(observations, language_instruction)
+        else:
             h = self.octo.encode(observations, language_instruction)
         return h
     
@@ -225,3 +233,14 @@ class OctoEuclideanBaseline(nn.Module):
     
     def trainable_parameters(self):
         return [p for p in self.parameters() if p.requires_grad]
+
+    def count_parameters(self):
+        """Count total and trainable parameters."""
+        total = sum(p.numel() for p in self.parameters())
+        trainable = sum(p.numel() for p in self.parameters() if p.requires_grad)
+        frozen = total - trainable
+        return {
+            'total': total,
+            'trainable': trainable,
+            'frozen': frozen,
+        }

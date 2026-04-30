@@ -1,12 +1,11 @@
-# Euclidean Baseline + Scene-ID Backbone
-# Clean experiment: tests head geometry in isolation
+# Euclidean Baseline + Mock CNN Backbone
+# Tests head + backbone interaction
 
 model:
   name: "OctoEuclideanBaseline"
   hidden_dim: 768
   freeze_backbone: false
-  backbone_kind: "scene_id"
-  n_tasks: 2
+  backbone_kind: "mock_cnn"
 
 training:
   learning_rate: 1.0e-4

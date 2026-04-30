@@ -10,7 +10,7 @@ Includes:
 
 import torch
 import numpy as np
-from ..utils.se3_utils import geodesic_distance, geodesic_distance_rotation_only, se3_to_rotation_angle
+from utils.se3_utils import geodesic_distance, geodesic_distance_rotation_only, se3_to_rotation_angle
 
 
 def geodesic_rmse(X_pred, X_target):

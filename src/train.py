@@ -1,15 +1,15 @@
 """
-Training script for SE(3)-VLA.
+Training script for SE(3)-VLA controlled experiments.
 
-Supports both SE(3) flow matching head and Euclidean baseline.
-Uses synthetic SE(3) demonstration data for pipeline validation.
+Supports:
+- SE(3) flow matching head and Euclidean baseline
+- Mock CNN backbone or Scene-ID backbone (backbone_kind config)
+- Per-family validation (rotation_heavy, translation_heavy, combined)
+- Seed argument for multi-seed sweeps
 
 Usage:
-    # Train SE(3) model
-    python src/train.py --config configs/octo_se3.yaml
-
-    # Train Euclidean baseline
-    python src/train.py --config configs/octo_baseline.yaml
+    python src/train.py --config configs/octo_se3.yaml --seed 0
+    python src/train.py --config configs/octo_baseline.yaml --seed 0
 """
 
 import argparse
@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from models.octo_adapter import OctoSE3, OctoEuclideanBaseline
 from models.mock_backbone import MockOctoBackbone
+from models.scene_id_backbone import SceneIDBackbone
 from models.geodesic_loss import GeodesicMSELoss
 from utils.metrics import geodesic_rmse, rotation_rmse, translation_rmse
 from training.data_loader import create_dataloaders
@@ -34,6 +35,18 @@ from training.data_loader import create_dataloaders
 def load_config(path):
     with open(path, 'r') as f:
         return yaml.safe_load(f)
+
+
+def make_backbone(config):
+    """Create backbone based on config['model']['backbone_kind']."""
+    hidden_dim = config['model'].get('hidden_dim', 768)
+    kind = config['model'].get('backbone_kind', 'mock_cnn')
+
+    if kind == 'scene_id':
+        n_tasks = config['model'].get('n_tasks', 2)
+        return SceneIDBackbone(n_tasks=n_tasks, hidden_dim=hidden_dim)
+    else:
+        return MockOctoBackbone(hidden_dim=hidden_dim)
 
 
 def train_one_epoch(model, dataloader, optimizer, device, config, is_se3=True):
@@ -54,25 +67,21 @@ def train_one_epoch(model, dataloader, optimizer, device, config, is_se3=True):
         optimizer.zero_grad()
 
         if is_se3:
-            # SE(3) model expects SE(3) matrices as targets
             loss, loss_dict = model.compute_loss(
                 observations, language, target_actions, target_gripper
             )
         else:
-            # Euclidean baseline expects R^6 (axis-angle + translation)
-            # Extract from SE(3) matrix: rotation as log map, translation directly
             from utils.se3_utils import log_so3
             R = target_actions[:, :3, :3]
             t = target_actions[:, :3, 3]
-            omega = log_so3(R)  # [B, 3]
-            target_flat = torch.cat([omega, t], dim=-1)  # [B, 6]
+            omega = log_so3(R)
+            target_flat = torch.cat([omega, t], dim=-1)
             loss, loss_dict = model.compute_loss(
                 observations, language, target_flat, target_gripper
             )
 
         loss.backward()
 
-        # Gradient clipping
         grad_clip = config['training'].get('gradient_clip_norm', 1.0)
         trainable_params = model.trainable_parameters()
         if trainable_params:
@@ -83,7 +92,6 @@ def train_one_epoch(model, dataloader, optimizer, device, config, is_se3=True):
         total_loss += loss_dict['total_loss']
         n_batches += 1
 
-        # Accumulate loss components
         for k, v in loss_dict.items():
             if k not in loss_components:
                 loss_components[k] = 0
@@ -96,8 +104,8 @@ def train_one_epoch(model, dataloader, optimizer, device, config, is_se3=True):
 
 
 @torch.no_grad()
-def validate(model, dataloader, device, is_se3=True):
-    """Run validation and compute metrics."""
+def validate_single(model, dataloader, device, is_se3=True):
+    """Run validation on a single dataloader, return metrics dict."""
     model.eval()
     all_pred = []
     all_target = []
@@ -110,61 +118,74 @@ def validate(model, dataloader, device, is_se3=True):
         if is_se3:
             h = model.encode(observations, language)
             pred_actions, _ = model.action_predictor.predict(h, n_steps=10)
-            all_pred.append(pred_actions)
-            all_target.append(target_actions)
         else:
             h = model.encode(observations, language)
             action = model.action_head(h)
-            # Convert Euclidean prediction to SE(3) for metric comparison
             from utils.se3_utils import exp_so3
             omega = action[:, :3]
             t = action[:, 3:6]
             R = exp_so3(omega)
             B = R.shape[0]
-            T_pred = torch.eye(4, device=device).unsqueeze(0).expand(B, -1, -1).clone()
-            T_pred[:, :3, :3] = R
-            T_pred[:, :3, 3] = t
-            all_pred.append(T_pred)
-            all_target.append(target_actions)
+            pred_actions = torch.eye(4, device=device).unsqueeze(0).expand(B, -1, -1).clone()
+            pred_actions[:, :3, :3] = R
+            pred_actions[:, :3, 3] = t
+
+        all_pred.append(pred_actions)
+        all_target.append(target_actions)
 
     all_pred = torch.cat(all_pred, dim=0)
     all_target = torch.cat(all_target, dim=0)
 
-    g_rmse = geodesic_rmse(all_pred, all_target).item()
-    r_rmse = rotation_rmse(all_pred, all_target).item()
-    t_rmse = translation_rmse(all_pred, all_target).item()
-
     return {
-        'geodesic_rmse': g_rmse,
-        'rotation_rmse': r_rmse,
-        'translation_rmse': t_rmse,
+        'geodesic_rmse': geodesic_rmse(all_pred, all_target).item(),
+        'rotation_rmse': rotation_rmse(all_pred, all_target).item(),
+        'translation_rmse': translation_rmse(all_pred, all_target).item(),
     }
+
+
+def validate_all_families(model, val_loaders, device, is_se3=True):
+    """Validate on all family loaders, return nested dict."""
+    results = {}
+    for family_name, loader in val_loaders.items():
+        results[family_name] = validate_single(model, loader, device, is_se3)
+    return results
 
 
 def main():
     parser = argparse.ArgumentParser(description="Train SE(3)-VLA")
-    parser.add_argument('--config', type=str, required=True, help="Path to config YAML")
-    parser.add_argument('--resume', type=str, default=None, help="Checkpoint to resume from")
-    parser.add_argument('--epochs', type=int, default=None, help="Override number of epochs")
+    parser.add_argument('--config', type=str, required=True)
+    parser.add_argument('--resume', type=str, default=None)
+    parser.add_argument('--epochs', type=int, default=None)
+    parser.add_argument('--seed', type=int, default=0)
     args = parser.parse_args()
 
     config = load_config(args.config)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+    # Seed everything
+    torch.manual_seed(args.seed)
+    torch.cuda.manual_seed_all(args.seed)
+
     model_name = config['model']['name']
+    backbone_kind = config['model'].get('backbone_kind', 'mock_cnn')
     is_se3 = (model_name == 'OctoSE3')
     hidden_dim = config['model'].get('hidden_dim', 768)
 
-    print("=" * 60)
-    print(f"  SE(3)-VLA Training")
-    print(f"  Model: {model_name}")
-    print(f"  Device: {device}")
-    print(f"  Config: {args.config}")
-    print("=" * 60)
+    # Run tag for file naming
+    run_tag = f"{model_name}_{backbone_kind}_seed{args.seed}"
 
-    # Create mock backbone
+    print("=" * 70)
+    print(f"  SE(3)-VLA Training — Controlled Experiment")
+    print(f"  Model:    {model_name}")
+    print(f"  Backbone: {backbone_kind}")
+    print(f"  Seed:     {args.seed}")
+    print(f"  Device:   {device}")
+    print(f"  Run tag:  {run_tag}")
+    print("=" * 70)
+
+    # Create backbone
     print("\n[1/4] Creating model...")
-    backbone = MockOctoBackbone(hidden_dim=hidden_dim)
+    backbone = make_backbone(config)
 
     if is_se3:
         model = OctoSE3(
@@ -185,17 +206,18 @@ def main():
         )
 
     model = model.to(device)
-    param_counts = model.count_parameters() if hasattr(model, 'count_parameters') else {}
-    print(f"  Total params:     {param_counts.get('total', 'N/A'):,}")
-    print(f"  Trainable params: {param_counts.get('trainable', 'N/A'):,}")
-    print(f"  Frozen params:    {param_counts.get('frozen', 'N/A'):,}")
+    param_counts = model.count_parameters()
+    print(f"  Total params:     {param_counts['total']:,}")
+    print(f"  Trainable params: {param_counts['trainable']:,}")
+    print(f"  Frozen params:    {param_counts['frozen']:,}")
 
-    # Create dataloaders
+    # Create dataloaders (returns per-family val loaders)
     print("\n[2/4] Creating dataloaders...")
-    train_loader, val_loader = create_dataloaders(config)
+    train_loader, val_loaders = create_dataloaders(config, seed=args.seed)
     print(f"  Train samples: {len(train_loader.dataset)}")
-    print(f"  Val samples:   {len(val_loader.dataset)}")
-    print(f"  Batch size:    {config['training'].get('batch_size', 32)}")
+    for name, loader in val_loaders.items():
+        print(f"  Val [{name}]: {len(loader.dataset)}")
+    print(f"  Batch size: {config['training'].get('batch_size', 32)}")
 
     # Optimizer and scheduler
     print("\n[3/4] Setting up optimizer...")
@@ -213,7 +235,7 @@ def main():
     print(f"  Learning rate: {config['training']['learning_rate']}")
     print(f"  Epochs: {n_epochs}")
 
-    # Resume if requested
+    # Resume
     start_epoch = 0
     if args.resume and os.path.exists(args.resume):
         print(f"\n  Resuming from: {args.resume}")
@@ -235,81 +257,84 @@ def main():
     for epoch in range(start_epoch, n_epochs):
         epoch_start = time.time()
 
-        # Train
         train_loss, train_components = train_one_epoch(
             model, train_loader, optimizer, device, config, is_se3=is_se3
         )
-
-        # Step scheduler
         scheduler.step()
 
-        # Validate
-        val_metrics = validate(model, val_loader, device, is_se3=is_se3)
+        # Per-family validation
+        family_metrics = validate_all_families(model, val_loaders, device, is_se3)
 
         epoch_time = time.time() - epoch_start
-
-        # Log
         lr = optimizer.param_groups[0]['lr']
+
+        # Combined metrics for logging
+        cm = family_metrics.get('combined', family_metrics.get(
+            list(family_metrics.keys())[0], {}))
+
         print(
             f"Epoch {epoch+1:3d}/{n_epochs} | "
             f"Loss: {train_loss:.4f} | "
-            f"G-RMSE: {val_metrics['geodesic_rmse']:.4f} | "
-            f"R-RMSE: {val_metrics['rotation_rmse']:.4f} | "
-            f"T-RMSE: {val_metrics['translation_rmse']:.4f} | "
+            f"G-RMSE: {cm.get('geodesic_rmse', 0):.4f} | "
+            f"Rot[R]: {family_metrics.get('rotation_heavy', {}).get('rotation_rmse', 0):.4f} | "
+            f"Rot[T]: {family_metrics.get('translation_heavy', {}).get('rotation_rmse', 0):.4f} | "
             f"LR: {lr:.2e} | "
             f"Time: {epoch_time:.1f}s"
         )
 
-        # Track history
+        # History record
         record = {
             'epoch': epoch + 1,
             'train_loss': train_loss,
             'lr': lr,
             'epoch_time': epoch_time,
-            **{f'val_{k}': v for k, v in val_metrics.items()},
+            'per_family': family_metrics,
             **{f'train_{k}': v for k, v in train_components.items()},
         }
         history.append(record)
 
-        # Save checkpoint
+        # Checkpoint
         save_interval = config.get('logging', {}).get('save_interval', 10)
         if (epoch + 1) % save_interval == 0 or (epoch + 1) == n_epochs:
-            ckpt_path = os.path.join(ckpt_dir, f"{model_name}_epoch_{epoch+1}.pt")
+            ckpt_path = os.path.join(ckpt_dir, f"{run_tag}_epoch_{epoch+1}.pt")
             torch.save({
                 'epoch': epoch + 1,
                 'model_state_dict': model.state_dict(),
                 'optimizer_state_dict': optimizer.state_dict(),
-                'val_metrics': val_metrics,
+                'per_family_metrics': family_metrics,
                 'config': config,
+                'seed': args.seed,
             }, ckpt_path)
-            print(f"  → Saved checkpoint: {ckpt_path}")
+            print(f"  → Saved: {ckpt_path}")
 
-        # Save best
-        if val_metrics['geodesic_rmse'] < best_val_metric:
-            best_val_metric = val_metrics['geodesic_rmse']
-            best_path = os.path.join(ckpt_dir, f"{model_name}_best.pt")
+        # Best checkpoint (tracked on combined geodesic RMSE)
+        combined_grmse = cm.get('geodesic_rmse', float('inf'))
+        if combined_grmse < best_val_metric:
+            best_val_metric = combined_grmse
+            best_path = os.path.join(ckpt_dir, f"{run_tag}_best.pt")
             torch.save({
                 'epoch': epoch + 1,
                 'model_state_dict': model.state_dict(),
                 'optimizer_state_dict': optimizer.state_dict(),
-                'val_metrics': val_metrics,
+                'per_family_metrics': family_metrics,
                 'config': config,
+                'seed': args.seed,
             }, best_path)
 
     # Summary
     total_time = time.time() - start_time
-    print("\n" + "=" * 60)
+    print("\n" + "=" * 70)
     print(f"  Training complete!")
     print(f"  Total time: {total_time:.1f}s ({total_time/60:.1f} min)")
-    print(f"  Best geodesic RMSE: {best_val_metric:.4f}")
-    print(f"  Final checkpoint: {ckpt_dir}/{model_name}_best.pt")
-    print("=" * 60)
+    print(f"  Best combined geodesic RMSE: {best_val_metric:.4f}")
+    print(f"  Checkpoint: {ckpt_dir}/{run_tag}_best.pt")
+    print("=" * 70)
 
-    # Save training history
-    history_path = os.path.join(ckpt_dir, f"{model_name}_history.json")
+    # Save history
+    history_path = os.path.join(ckpt_dir, f"{run_tag}_history.json")
     with open(history_path, 'w') as f:
         json.dump(history, f, indent=2)
-    print(f"  Training history saved: {history_path}")
+    print(f"  History saved: {history_path}")
 
 
 if __name__ == '__main__':

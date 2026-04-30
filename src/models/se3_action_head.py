@@ -10,7 +10,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import math
-from ..utils.se3_utils import exp_se3, log_se3, inverse_se3, geodesic_interpolation, sample_se3_gaussian
+from utils.se3_utils import exp_se3, log_se3, inverse_se3, geodesic_interpolation, sample_se3_gaussian
 
 
 class SinusoidalTimeEmbedding(nn.Module):

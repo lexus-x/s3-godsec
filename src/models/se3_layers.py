@@ -6,7 +6,7 @@ Provides layers that operate directly on SE(3) representations.
 
 import torch
 import torch.nn as nn
-from ..utils.se3_utils import log_se3, exp_se3
+from utils.se3_utils import log_se3, exp_se3
 
 
 class SE3Linear(nn.Module):

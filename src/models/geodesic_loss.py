@@ -4,7 +4,7 @@ Geodesic loss functions for SE(3) action prediction.
 
 import torch
 import torch.nn as nn
-from ..utils.se3_utils import log_se3, inverse_se3, geodesic_distance, geodesic_distance_rotation_only
+from utils.se3_utils import log_se3, inverse_se3, geodesic_distance, geodesic_distance_rotation_only
 
 
 class GeodesicMSELoss(nn.Module):
